@@ -48,6 +48,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
     
     <script src="js/app.js"></script>
+    <style>
+        .wrap{
+          height: 210px;
+          overflow-x: auto;
+          overflow-y: hidden;
+          white-space: nowrap;
+        }
+        .b{
+          width: 250px;
+          height: 200px;
+        }
+        </style>
 </head>
 
 <body>
@@ -211,6 +223,27 @@
                 <!-- <p class="text-justify">
                     We train NeRF and mip-NeRF on a dataset with images at four different resolutions. Normal NeRF (left) is not capable of learning to represent the same scene at multiple levels of detail, with blurring in close-up shots and aliasing in low resolution views, while mip-NeRF (right) both preserves sharp details in close-ups and correctly renders the zoomed-out images.
                 </p> -->
+                
+                <section class="hero is-light is-small">
+                    <div class="wrap">
+                        <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
+                            <source src="video/ours001.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
+                            <source src="video/ours033.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
+                            <source src="video/ours114.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
+                            <source src="video/ours009.mp4"
+                                    type="video/mp4">
+                        </video>
+                      </div>
+                </section>
                 <h4>
                     Depth map Inference
                 </h4>
