@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 	<link rel="shortcut icon" href="./img/doge.ico">
-    <title>RC-MVSNet</title>
+    <title>LibreFace</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,20 +15,20 @@
     <!-- <base href="/"> -->
 
         <!--FACEBOOK-->
-    <meta property="og:image" content="https://boese0601.github.io/images/rc.jpg">
+    <meta property="og:image" content="https://boese0601.github.io/images/libre.jpg">
     <meta property="og:image:type" content="image/jpg">
     <meta property="og:image:width" content="682">
     <meta property="og:image:height" content="682">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://boese0601.github.io/rc-mvsnet/"/>
-    <meta property="og:title" content="RC-MVSNet" />
-    <meta property="og:description" content="Project page for RC-MVSNet: Unsupervised Multi-View Stereo with Neural Rendering." />
+    <meta property="og:url" content="https://boese0601.github.io/libreface/"/>
+    <meta property="og:title" content="LibreFace" />
+    <meta property="og:description" content="Project page for LibreFace: An Open-Source Toolkit for Deep Facial Expression Analysis." />
 
         <!--TWITTER-->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="RC-MVSNet" />
-    <meta name="twitter:description" content="Project page for RC-MVSNet: Unsupervised Multi-View Stereo with Neural Rendering." />
-    <meta name="twitter:image" content="https://boese0601.github.io/images/rc.jpg" />
+    <meta name="twitter:title" content="LibreFace" />
+    <meta name="twitter:description" content="Project page for LibreFace: An Open-Source Toolkit for Deep Facial Expression Analysis." />
+    <meta name="twitter:image" content="https://boese0601.github.io/images/libre.jpg" />
 
 
 <!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
@@ -67,9 +67,9 @@
         <div class="row">
             <h2 class="col-md-12 text-center">
                 <!-- <b>GBi-Net</b>: A Multiscale Representation <br> for Anti-Aliasing Neural Radiance Fields</br>  -->
-                RC-MVSNet: Unsupervised Multi-View Stereo <br> with Neural Rendering </br>
+                LibreFace: An Open-Source Toolkit for Deep Facial Expression Analysis </br>
                 <small>
-                    ECCV 2022
+                    WACV 2024
                 </small>
             </h2>
         </div>
@@ -78,38 +78,27 @@
                 <ul class="list-inline">
                     <li>
                         <a href="https://boese0601.github.io/">
-                            Di Chang</a><sup>1</sup>
+                            Di Chang</a>
                     </li>
                     <li>
-                        <a href="https://aljazbozic.github.io/">
-                            Aljaž Božič</a><sup>1</sup>
+                        <a href="https://yufengyin.github.io/">
+                            Yufeng Yin</a>
                     </li>
                     <li>
-                        <a href="https://people.epfl.ch/tong.zhang?lang=en">
-                            Tong Zhang</a><sup>2</sup>
+                        Zongjian Li
                     </li>
                     <li>
-                            Qingsong Yan<sup>3</sup>
+                        <a href="https://scholar.google.com/citations?user=HuuQRj4AAAAJ&hl=en">
+                            Minh Tran
                     </li>
+
                     <li>
-                            Yingcong Chen<sup>3</sup>
-                    </li>
-                    <br>
-                    <li>
-                        <a href="https://people.epfl.ch/sabine.susstrunk">
-                            Sabine Süsstrunk</a><sup>2</sup>
-                    </li>
-                    <li>
-                        <a href="https://niessnerlab.org/">
-                            Matthias Nießner</a><sup>1</sup>
+                        <a href="https://people.ict.usc.edu/~soleymani/">
+                            Mohammad Soleymani</a>
                     </li>
                     <br>
                     <li>
-                        <sup>1</sup><a href="https://www.tum.de/">Technische Universität München</a>
-                        <br>
-                        <sup>2</sup><a href="https://www.epfl.ch/">École Polytechnique Fédérale de Lausanne</a>
-                        <br>
-                        <sup>3</sup><a href="https://hkust.edu.hk/">The Hong Kong University of Science and Technology</a>
+                        <a href="https://ict.usc.edu/">Institute for Creative Technologies, University of Southern California</a>
                     </li>
                 </ul>
             </div>
@@ -120,19 +109,19 @@
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <ul class="nav nav-pills nav-justified">
                         <li>
-                            <a href="https://arxiv.org/abs/2203.03949">
+                            <a href="">
                             <image src="img/arxiv-logo.png" height="60px">
                                 <h4><strong>Arxiv</strong></h4>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.youtube.com/watch?v=I_Q47TxTLbs">
+                            <a href="">
                             <image src="img/youtube_icon.png" height="60px">
                                 <h4><strong>Video</strong></h4>
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/Boese0601/RC-MVSNet">
+                            <a href="https://github.com/ihp-lab/LibreFace">
                             <image src="img/github.png" height="60px">
                                 <h4><strong>Code</strong></h4>
                             </a>
@@ -148,18 +137,18 @@
                 <h3>
                     Abstract
                 </h3>
-                <image src="img/Comparison.jpg" class="img-responsive" alt="overview"><br>
+                <image src="img/Pipe.png" class="img-responsive" alt="overview"><br>
                 <p class="text-justify">
-                    Finding accurate correspondences among different views is
-                    the Achilles' heel of unsupervised Multi-View Stereo (MVS). Existing
-                    methods are built upon the assumption that corresponding pixels share
-                    similar photometric features. However, multi-view images in real scenarios observe non-Lambertian surfaces and experience occlusions. In this
-                    work, we propose a novel approach with neural rendering (RC-MVSNet)
-                    to solve such ambiguity issues of correspondences among views. Specifically, we impose a depth rendering consistency loss to constrain the
-                    geometry features close to the object surface to alleviate occlusions.
-                    Concurrently, we introduce a reference view synthesis loss to generate
-                    consistent supervision, even for non-Lambertian surfaces. Extensive experiments on DTU and Tanks&Temples benchmarks demonstrate that
-                    our approach achieves state-of-the-art performance over unsupervised MVS frameworks and competitive performance to many supervised methods. Our code will be released at <a href="https://github.com/Boese0601/RC-MVSNet">RC-MVSNet</a>.
+                Facial expression analysis is an important tool for human-computer interaction. 
+                In this paper, we introduce LibreFace, an open-source toolkit for facial expression analysis. 
+                This open-source toolbox offers real-time and offline analysis of facial behavior through deep learning models, including facial action unit (AU) detection, AU intensity estimation, and facial expression recognition. 
+                To accomplish this, we employ several techniques, including the utilization of a large-scale pre-trained network, feature-wise knowledge distillation, and task-specific fine-tuning. 
+                These approaches are designed to effectively and accurately analyze facial expressions by leveraging visual information, thereby facilitating the implementation of real-time interactive applications. 
+                In terms of Action Unit (AU) intensity estimation, we achieve a Pearson Correlation Coefficient (PCC) of <b>0.63</b> on DISFA, 
+                which is <b>7%</b> higher than the performance of OpenFace 2.0, while maintaining highly-efficient inference that 
+                runs <b>two times</b> faster than OpenFace 2.0. 
+                Despite being compact, our model also demonstrates competitive performance to state-of-the-art facial expression analysis methods on AffecNet, FFHQ, and RAF-DB.
+                Our code will be released soon at <a href="https://github.com/ihp-lab/LibreFace">LibreFace</a>.
                 </p>
             </div>
         </div>
@@ -196,12 +185,20 @@
                 <h3>
                     Proposed Method
                 </h3>
-                <image src="img/Pipe.jpg" class="img-responsive" alt="overview"><br>
+                <div class="col-md-offset-3">
+                    <img src="img/method.jpg" class="img-responsive" alt="overview" width="450px"><br>
+                </div>
+         
+                
                 <!-- <p class="text-justify">
                     Typical positional encoding (as used in Transformer networks and Neural Radiance Fields) maps a single point in space to a feature vector, where each element is generated by a sinusoid with an exponentially increasing frequency:
                 </p> -->
                 <p class="text-justify">
-                    Overview of our RC-MVSNet. a) Unsupervised Backbone CasMVSNet predicts initial depth map by photometric consistency and provides depth priors for rendering consistency network. b) Rendering Consistency Network generates image and depth by neural rendering under the guidance of depth priors. c) The rendered image is supervised by the reference view synthesis loss. d) The rendered depth is supervised by the depth rendering consistency loss.
+                    We first pre-process the input images or video, which involves face mesh and landmark detection and image alignment.
+                    Next, we feed the pre-processed images into a pre-trained MAE encoder, followed by a linear regression or classification layer that predicts the AU intensity values or facial expression labels. 
+                    Once the MAE is fine-tuned, we employ feature-wise distillation to transfer the teacher model's (MAE) knowledge to a lightweight student model (ResNet-18). 
+                    Finally, we use the distilled ResNet-18 for efficient Action Unit Intensity Estimation, Action Unit Detection and Facial Expression Recognition.
+                    All outputs from the pipeline can be saved, and training/inference code is open-sourced.
                 </p>
             </div>
         </div>
@@ -211,11 +208,18 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Motivation
+                    Contributions
                 </h3>
-                <image src="img/Motivation.jpg" class="img-responsive" alt="overview"><br>
+                <div class="col-md-offset-4">
+                    <image src="img/System.png" class="img-responsive" alt="overview" width="300px"><br>
+                </div>
+                
                 <p class="text-justify">
-                    In the real-world environment occlusions, reflecting, non-Lambertian surfaces, varying camera exposure, and other variables will make photometric consistency assumption invalid.
+                We present LibreFace, an open-source and comprehensive toolkit for accurate and real-time facial expression analysis with both CPU-only and GPU-acceleration versions. LibreFace eliminates the gap between cutting-edge research and an easy and free-to-use non-commercial toolbox.
+                We propose to adaptively pre-train the vision encoders with various face datasets and then distillate them to a lightweight ResNet-18 model in a feature-wise matching manner.
+                We conduct extensive experiments of pre-training and distillation to demonstrate that our proposed pipeline achieves comparable results to state-of-the-art works while maintaining real-time efficiency.
+                LibreFace system supports cross-platform running, and the code is open-sourced in C\# (model inference and checkpoints) and Python (model training, inference, and checkpoints).
+
                 </p>
 
             </div>
@@ -226,17 +230,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Results on DTU
+                    Software Demo
                 </h3>
-                <h4>
-                    Point Cloud Reconstruction
-                </h4>
-                <image src="img/dtu_all.jpg" class="img-responsive" alt="overview"><br>
+                <image src="img/software.png" class="img-responsive" alt="overview"><br>
                 <!-- <p class="text-justify">
                     We train NeRF and mip-NeRF on a dataset with images at four different resolutions. Normal NeRF (left) is not capable of learning to represent the same scene at multiple levels of detail, with blurring in close-up shots and aliasing in low resolution views, while mip-NeRF (right) both preserves sharp details in close-ups and correctly renders the zoomed-out images.
                 </p> -->
                 
-                <section class="hero is-light is-small">
+                <!-- <section class="hero is-light is-small">
                     <div class="wrap">
                         <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
                             <source src="video/ours001.mp4"
@@ -255,29 +256,26 @@
                                     type="video/mp4">
                         </video>
                       </div>
-                </section>
-                <h4>
+                </section> -->
+                <!-- <h4>
                     Depth map Inference
                 </h4>
-                <image src="img/Depthmaps.jpg" class="img-responsive" alt="overview"><br>
+                <image src="img/Depthmaps.jpg" class="img-responsive" alt="overview"><br> -->
 
             </div>
         </div>
 
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Results on Tanksandtemples
                 </h3>
                 <image src="img/tanks.jpg" class="img-responsive" alt="overview"><br>
                 <image src="img/tanksandtemples.jpg" class="img-responsive" alt="overview"><br>
-                <!-- <p class="text-justify">
-                    We train NeRF and mip-NeRF on a dataset with images at four different resolutions. Normal NeRF (left) is not capable of learning to represent the same scene at multiple levels of detail, with blurring in close-up shots and aliasing in low resolution views, while mip-NeRF (right) both preserves sharp details in close-ups and correctly renders the zoomed-out images.
-                </p> -->
             </div>
         </div>
-      
+       -->
             
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -286,12 +284,12 @@
                 </h3>
                 <div class="form-group col-md-10 col-md-offset-1">
                     <textarea id="bibtex" class="form-control" readonly>
-@inproceedings{chang2022rc,
-title={RC-MVSNet: Unsupervised Multi-View Stereo with Neural Rendering},
-author={Chang, Di and Bo{\v{z}}i{\v{c}}, Alja{\v{z}} and Zhang, Tong and Yan, Qingsong and Chen, Yingcong and S{\"u}sstrunk, Sabine and Nie{\ss}ner, Matthias},
-booktitle={Proceedings of the European conference on computer vision (ECCV)},
-year={2022}
-}</textarea>
+                    @inproceedings{chang2022rc,
+                    title={RC-MVSNet: Unsupervised Multi-View Stereo with Neural Rendering},
+                    author={Chang, Di and Bo{\v{z}}i{\v{c}}, Alja{\v{z}} and Zhang, Tong and Yan, Qingsong and Chen, Yingcong and S{\"u}sstrunk, Sabine and Nie{\ss}ner, Matthias},
+                    booktitle={Proceedings of the European conference on computer vision (ECCV)},
+                    year={2022}
+                    }</textarea>
                 </div>
             </div>
         </div>
@@ -304,7 +302,6 @@ year={2022}
                 <p class="text-justify">
                     This work is completed during Di's Guided Research Praktikum at Visual Computing & Artificial Intelligence Group(TUM) directed by Prof. Matthias Nießner and Summer@EPFL Internship at Image and Visual Representation Lab(EPFL) directed by Prof. Sabine Süsstrunk. The project is funded by the ERC Starting Grant Scan2CAD (804724), a TUM-IAS Rudolf Mößbauer Fellowship, and the German Research Foundation (DFG) Grant Making Machine Learning on Static and Dynamic 3D Data Practical. 
                     <br>
-                The website template was borrowed from <a href="https://mizhenxing.github.io/">Zhenxing Mi</a> <a href="https://mizhenxing.github.io/gbinet/">GBi-Net</a>.
                 </p>
             </div>
         </div>
