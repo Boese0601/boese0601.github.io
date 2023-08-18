@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<link rel="shortcut icon" href="./img/doge.ico">
+    <title>FG-Net</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://boese0601.github.io/images/fgnet.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://boese0601.github.io/fgnet/"/>
+    <meta property="og:title" content="FG-Net" />
+    <meta property="og:description" content="Project page for FG-Net: Facial Action Unit Detection with Generalizable Pyramidal Features." />
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FG-Net" />
+    <meta name="twitter:description" content="Project page for Project page for FG-Net: Facial Action Unit Detection with Generalizable Pyramidal Features." />
+    <meta name="twitter:image" content="https://boese0601.github.io/images/fgnet.jpg" />
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+    <style>
+        .wrap{
+          height: 210px;
+          overflow-x: auto;
+          overflow-y: hidden;
+          white-space: nowrap;
+        }
+        .b{
+          width: 250px;
+          height: 200px;
+        }
+        </style>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                <!-- <b>GBi-Net</b>: A Multiscale Representation <br> for Anti-Aliasing Neural Radiance Fields</br>  -->
+                FG-Net: Facial Action Unit Detection with Generalizable Pyramidal Features</br>
+                <small>
+                    WACV 2024
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+
+                    <li>
+                        <a href="https://yufengyin.github.io/">
+                            Yufeng Yin</a><sup>1</sup>
+                    </li>
+                    <li>
+                        <a href="https://boese0601.github.io/">
+                            Di Chang</a><sup>1</sup>
+                    </li>
+                    <li>
+                        <a href="">Guoxian Song</a><sup>2</sup>
+                    </li>
+                    <li>
+                        <a href="">
+                            Shen Sang</a><sup>2</sup>
+                    </li>
+                    <li>
+                        <a href="">
+                            Tiancheng Zhi</a><sup>2</sup>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="">
+                            Jing Liu</a><sup>2</sup>
+                    </li>
+                    <li>
+                        <a href="">
+                            Linjie Luo</a><sup>2</sup>
+                    </li>
+                    <li>
+                        <a href="https://people.ict.usc.edu/~soleymani/">
+                            Mohammad Soleymani</a><sup>1</sup>
+                    </li>
+                    <br>
+                    <li>
+                        <sup>1</sup><a href="https://www.usc.edu/">University of Southern California</a>
+                    </li>
+                    <br>
+                    <li>
+                        <sup>2</sup><a href="https://www.tiktok.com/en/">TikTok</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="">
+                            <image src="img/arxiv-logo.png" height="60px">
+                                <h4><strong>Arxiv</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                            <image src="img/youtube_icon.png" height="60px">
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ihp-lab/LibreFace">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <image src="img/Visualization.jpg" class="img-responsive" alt="overview"><br>
+                <p class="text-justify">
+                    Automatic detection of facial Action Units (AUs) allows for objective facial expression analysis. Due to the high cost of AU labeling and the limited size of existing bench- marks, previous AU detection methods tend to overfit the dataset, resulting in a significant performance loss when evaluated across corpora. To address this problem, we pro- pose FG-Net for generalizable facial action unit detection. Specifically, FG-Net extracts feature maps from a Style- GAN2 model pre-trained on a large and diverse face im- age dataset. Then, these features are used to detect AUs with a Pyramid CNN Interpreter, making the training ef- ficient and capturing essential local features. The pro- posed FG-Net achieves a strong generalization ability for heatmap-based AU detection thanks to the generalizable and semantic-rich features extracted from the pre-trained generative model. Extensive experiments are conducted to evaluate within- and cross-corpus AU detection with the widely-used DISFA and BP4D datasets. Compared with the state-of-the-art, the proposed method achieves superior cross-domain performance while maintaining competitive within-domain performance. In addition, FG-Net is data- efficient and achieves competitive performance even when trained on 1000 samples. Our code will soon be released <a href="">here</a>.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/EpH175PY1A0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/I_Q47TxTLbs" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <iframe width="1191" height="670" src="" title="RC-MVSNet: Unsupervised Multi-View Stereo with Neural Rendering (ECCV'22)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Proposed Method
+                </h3>
+               
+                    <img src="img/method.jpg" class="img-responsive" alt="overview"><br>
+                
+         
+                
+                <!-- <p class="text-justify">
+                    Typical positional encoding (as used in Transformer networks and Neural Radiance Fields) maps a single point in space to a feature vector, where each element is generated by a sinusoid with an exponentially increasing frequency:
+                </p> -->
+                <p class="text-justify">
+                    FG-Net first encodes and decodes the input image with the pSp encoder and the StyleGAN2 generator pretrained on the FFHQ dataset.
+                    During the decoding, FG-Net extracts feature maps from the generator. Leveraging the features extracted from a generative model trained on a large-scale and diverse dataset, FG-Net offers a higher generalizability for AU detection.
+                    To take advantage of the pixel-wise representations from the generator, FG-Net is designed to detect the AUs using a heatmap regression. To keep the training efficient and capture both local and global information, a Pyramid-CNN Interpreter is proposed to incorporate the multi-resolution feature maps in a hierarchical manner and detect the heatmaps representing facial action units.
+                </p>
+            </div>
+        </div>
+            
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Within/Cross-Domain Experiments
+                </h3>
+                <div class="col-md-offset-2">
+                    <image src="img/domain.jpg" class="img-responsive" alt="overview" width="500px"><br>
+                </div>
+                
+                <p class="text-justify">
+                    We visualize the ground-truth and detected heatmaps in the above figure. 
+                    For the within-domain evaluation, models are trained and tested with BP4D; 
+                    For the cross-domain evaluation, models are trained with BP4D and tested with DISFA. 
+                    For latent code, we directly use it to predict the AU activations, thus, we do not have the detected heatmaps for latent code. 
+                    For within-domain evaluation, FG-Net detects all AUs correctly, whereas the other methods output the wrong prediction for AU2 (outer brow raiser), showing that FG-Net achieves the best within-domain performance with every component. 
+                    For cross- domain evaluation, both using all features and removing late features detect all AUs correctly. However, removing late features results in a more accurate heatmap for AU12 than using all features.
+
+                </p>
+
+            </div>
+        </div>
+            
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Quantitative Comparison to Previous SOTA
+                </h3>
+                <div class="col-md-offset-2">
+                    <image src="img/performance.jpg" class="img-responsive" alt="overview" width="500px"><br>
+                </div>
+                <p class="text-justify">
+                Performance (F1 score) gap between the within- and cross-domain AU detection for DRML, JAA-Net, ME-GraphAU, and the proposed FG-Net. 
+                The within-domain performance is averaged between DISFA and BP4D, while the cross-domain performance is averaged between BP4D to DISFA and DISFA to BP4D. 
+                The proposed FG-Net has the highest cross-domain performance, thus, superior generalization ability. Please refer to our paper for further results and tables.
+                </p>
+                <!-- <p class="text-justify">
+                    We train NeRF and mip-NeRF on a dataset with images at four different resolutions. Normal NeRF (left) is not capable of learning to represent the same scene at multiple levels of detail, with blurring in close-up shots and aliasing in low resolution views, while mip-NeRF (right) both preserves sharp details in close-ups and correctly renders the zoomed-out images.
+                </p> -->
+                
+                <!-- <section class="hero is-light is-small">
+                    <div class="wrap">
+                        <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
+                            <source src="video/ours001.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
+                            <source src="video/ours033.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
+                            <source src="video/ours114.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <video poster="" id="sample1_input" autoplay controls muted loop height="100%" class="b">
+                            <source src="video/ours009.mp4"
+                                    type="video/mp4">
+                        </video>
+                      </div>
+                </section> -->
+                <!-- <h4>
+                    Depth map Inference
+                </h4>
+                <image src="img/Depthmaps.jpg" class="img-responsive" alt="overview"><br> -->
+
+            </div>
+        </div>
+
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results on Tanksandtemples
+                </h3>
+                <image src="img/tanks.jpg" class="img-responsive" alt="overview"><br>
+                <image src="img/tanksandtemples.jpg" class="img-responsive" alt="overview"><br>
+            </div>
+        </div>
+       -->
+            
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+                    @inproceedings{chang2022rc,
+                    title={RC-MVSNet: Unsupervised Multi-View Stereo with Neural Rendering},
+                    author={Chang, Di and Bo{\v{z}}i{\v{c}}, Alja{\v{z}} and Zhang, Tong and Yan, Qingsong and Chen, Yingcong and S{\"u}sstrunk, Sabine and Nie{\ss}ner, Matthias},
+                    booktitle={Proceedings of the European conference on computer vision (ECCV)},
+                    year={2022}
+                    }</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    The work of Soleymani, Yin and Chang was sponsored by the Army Research Office and was accomplished un- der Cooperative Agreement Number W911NF-20-2-0053. The views and conclusions contained in this document are those of the authors and should not be interpreted as rep- resenting the official policies, either expressed or implied, of the Army Research Office or the U.S. Government. The U.S. Government is authorized to reproduce and dis- tribute reprints for Government purposes notwithstanding any copyright notation herein.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
