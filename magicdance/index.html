@@ -195,7 +195,7 @@ with Motions & Facial Expressions Transfer</h1>
         <h2 class="title is-3">Method</h2>
 
         <!-- Interpolating. -->
-        <img src="./static/images/CVPR_pipeline.jpeg" class="interpolation-image" alt="Interpolate start reference image."/>
+        <img src="./static/images/Pipeline.jpg" class="interpolation-image" alt="Interpolate start reference image."/>
         <p>
           <br />
           Overview of the proposed MagicDance pipeline for controllable human dance video generation with motions & facial expressions transfer. The Appearance Control Model is a copy of the entire Stable-Diffusion UNet, initialized with the same weight. The Stable-Diffusion UNet is fixed throughout the training. During a) Appearance Control Pretraining, we train the appearance control model and its Multi-Source Self-Attention Module. During b) Appearance-disentangled Pose Control, we jointly finetune the Appearance Control Model, initialized with weights from a), and the Pose ControlNet. After these steps, we freeze all previously trained modules and finetune a motion module initialized with AnimateDiff
@@ -210,7 +210,9 @@ with Motions & Facial Expressions Transfer</h1>
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
         <h3 class="title is-4">1. Human Motion and Facial Expression Transfer</h3>
-        <img src="./static/images/motion_cropped.jpeg" class="interpolation-image" alt="Empty"/>
+        <img src="./static/images/Supp_TikTok_1.jpg" class="interpolation-image" alt="Empty"/>
+        <br />
+        <img src="./static/images/Supp_TikTok_2.jpg" class="interpolation-image" alt="Empty"/>
         <br />
         <p>
           Visualization of Human Motion and Facial Expression Transfer. MagicDance is able to generate vivid and realistic motion and expressions under the condition of diverse pose skeleton and face landmark input, while accurately maintaining identity information from the reference image input.
@@ -259,8 +261,10 @@ with Motions & Facial Expressions Transfer</h1>
         <p><center>Generated video</center></p>
         <br />
         <br />
-        <h3 class="title is-4">2. Zero-Shot 2D Animation Generation</h3>
-        <img src="./static/images/animie_cropped.jpeg" class="interpolation-image" alt="Empty"/>
+        <h3 class="title is-4">2. Zero-Shot Animation</h3>
+        <img src="./static/images/animation.jpg" class="interpolation-image" alt="Empty"/>
+        <br />
+        <img src="./static/images/Figure11_cropped.jpg" class="interpolation-image" alt="Empty"/>
         <br />
         <p>
           <br />
@@ -337,9 +341,9 @@ with Motions & Facial Expressions Transfer</h1>
         <p><center>
           <span style="margin: 0 73px">GT</span>
           <span style="margin: 0 73px">Pose</span>
-          <span style="margin: 0 73px">Tps</span>
+          <span style="margin: 0 73px">TPS</span>
           <span style="margin: 0 73px">Disco</span>
-          <span style="margin: 0 73px">ours</span>
+          <span style="margin: 0 73px">MagicDance</span>
         </center></p>
         <br />
         <br />
