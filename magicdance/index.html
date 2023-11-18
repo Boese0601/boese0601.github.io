@@ -151,7 +151,7 @@ with Motions & Facial Expressions Transfer</h1>
         <img src="static/images/CVPR_Teaser_cropped.jpeg" alt="empty">
         <p>
           <br />
-          We propose MagicDance, a novel and effective approach to provide realistic human video generation enabling vivid motion and facial expression transfer, and consistent 2D cartoon-style animation zero-shot generation without any fine-tuning. MagicDance can precisely generate appearance-consistent results, while the original text-to-image model (e.g., Stable Diffusion and ControlNet) can hardly maintain the subject identity information accurately. Furthermore, our proposed modules can be treated as an extension/plug-in to the original text-to-image model without modifying its pre-trained weight.
+          We propose MagicDance, a novel and effective approach to provide realistic human video generation enabling vivid motion and facial expression transfer, and consistent in-the-wild zero-shot generation without any fine-tuning. MagicDance can precisely generate appearance-consistent results, while the original text-to-image model (e.g., Stable Diffusion and ControlNet) can hardly maintain the subject identity information accurately. Furthermore, our proposed modules can be treated as an extension/plug-in to the original text-to-image model without modifying its pre-trained weight.
         </p>
     </div>
   </div>
@@ -165,8 +165,7 @@ with Motions & Facial Expressions Transfer</h1>
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           In this work, we propose MagicDance, a diffusion-based model for 2D human motion and facial expression transfer on challenging human dance video. Specifically, we aim to generate human dance videos of any target identity driven by novel pose sequences while keeping the identity unchanged. To this end, we propose a two-stage training strategy to disentangle human motions and appearance (e.g. facial expressions), consisting of the pretraining of an appearance-control block and finetuning of a appearance-pose-joint-control block over human dance poses of the same dataset. Compared to previous methods, the main contributions of our approach are highlight as three-fold: 1) Our novel design enables robust appearance control with time-consistent half-body, facial attributes, and even background. 2) Our model generalizes well on unseen human identities and complex motion sequences without the need of any finetuning on additional data with diverse human attributes, by properly leveraging the prior of controlnet pretrained over Internet-scale images. 3) Our model is easy-to-use, and can be considered as a plug-in module/extension to Stable Diffusion. %- Without finetuning Stable-Diffusion UNet (Your model weight is safe, as described in ControlNet).
-4) We support zero-shot 2D animation generation and enable appearance transfer from not only one identity to another, but also allows for cartoon-like stylization given only pose inputs. Extensive experiments demonstrate our state-of-the-art performance with over TikTok and Everybodydancenow Datasets.
+            In this work, we propose MagicDance, a diffusion-based model for 2D human motion and facial expression transfer on challenging human dance videos. Specifically, we aim to generate human dance videos of any target identity driven by novel pose sequences while keeping the identity unchanged. To this end, we propose a two-stage training strategy to disentangle human motions and appearance (e.g., facial expressions, skin tone and dressing), consisting of the pretraining of an appearance-control block and fine-tuning of an appearance-pose-joint-control block over human dance poses of the same dataset. Our novel design enables robust appearance control with temporally consistent upper body, facial attributes, and even background. The model also generalizes well on unseen human identities and complex motion sequences without the need for any fine-tuning with additional data with diverse human attributes by leveraging the prior knowledge of image diffusion models. Moreover, the proposed model is easy to use and can be considered as a plug-in module/extension to Stable Diffusion. We also demonstrate the model's ability for zero-shot 2D animation generation, enabling not only the appearance transfer from one identity to another but also allowing for cartoon-like stylization given only pose inputs. Extensive experiments demonstrate our superior performance on the TikTok dataset. 
           </p>
         </div>
       </div>
@@ -198,7 +197,7 @@ with Motions & Facial Expressions Transfer</h1>
         <img src="./static/images/Pipeline.jpg" class="interpolation-image" alt="Interpolate start reference image."/>
         <p>
           <br />
-          Overview of the proposed MagicDance pipeline for controllable human dance video generation with motions & facial expressions transfer. The Appearance Control Model is a copy of the entire Stable-Diffusion UNet, initialized with the same weight. The Stable-Diffusion UNet is fixed throughout the training. During a) Appearance Control Pretraining, we train the appearance control model and its Multi-Source Self-Attention Module. During b) Appearance-disentangled Pose Control, we jointly finetune the Appearance Control Model, initialized with weights from a), and the Pose ControlNet. After these steps, we freeze all previously trained modules and finetune a motion module initialized with AnimateDiff
+          Overview of the proposed MagicDance pipeline for controllable human dance video generation with motions & facial expressions transfer.  The Appearance Control Model is a copy of the entire Stable-Diffusion UNet, initialized with the same weight. The Stable-Diffusion UNet is frozen throughout the training. During a) Appearance Control Pretraining, we train the appearance control model and its Multi-Source Self-Attention Module. During b) Appearance-disentangled Pose Control, we jointly fine-tune the Appearance Control Model, initialized with weights from a), and the Pose ControlNet. After these steps, we freeze all previously trained modules and fine-tune a motion module initialized with AnimateDiff.
         </p>
       <!--/ Interpolating. -->
       </div>
@@ -268,7 +267,7 @@ with Motions & Facial Expressions Transfer</h1>
         <br />
         <p>
           <br />
-          Visualization of Zero-Shot 2D Animation Generation. MagicDance can provide a precise generation with identity information from cartoon-style images even without any further fine-tuning after being trained on real-human dance videos.
+          Visualization of Zero-Shot 2D Animation Generation. MagicDance can provide a precise generation with identity information from cartoon-style images even without any further fine-tuning after being trained on real-human dance videos.  
         </p>
         <br />
         <h4 class="title is-5">Video Results</h4>
@@ -339,12 +338,18 @@ with Motions & Facial Expressions Transfer</h1>
           <source src="./static/videos/2.mp4" type="video/mp4">
         </video>
         <p><center>
+          <span style="display: inline-block;width: 14.9%;">GT</span>
+          <span style="display: inline-block;width: 23.9%;">Pose</span>
+          <span style="display: inline-block;width: 18.9%;">TPS</span>
+          <span style="display: inline-block;width: 18.9%;">Disco</span>
+          <span style="display: inline-block;width: 19.9%;">MagicDance</span></center></p>
+        <!-- <p><center>
           <span style="margin: 0 73px">GT</span>
           <span style="margin: 0 73px">Pose</span>
           <span style="margin: 0 73px">TPS</span>
           <span style="margin: 0 73px">Disco</span>
           <span style="margin: 0 73px">Ours</span>
-        </center></p>
+        </center></p> -->
         <br />
         <br />
         <h3 class="title is-4">Quantitative Compare</h3>
