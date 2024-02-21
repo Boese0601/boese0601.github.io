@@ -194,7 +194,7 @@ with Motions & Facial Expressions Transfer</h1>
         <h2 class="title is-3">Method</h2>
 
         <!-- Interpolating. -->
-        <img src="./static/images/Pipeline.jpg" class="interpolation-image" alt="Interpolate start reference image."/>
+        <img src="./static/images/Pipeline.png" class="interpolation-image" alt="Interpolate start reference image."/>
         <p>
           <br />
           Overview of the proposed MagicDance pipeline for controllable human dance video generation with motions & facial expressions transfer.  The Appearance Control Model is a copy of the entire Stable-Diffusion UNet, initialized with the same weight. The Stable-Diffusion UNet is frozen throughout the training. During a) Appearance Control Pretraining, we train the appearance control model and its Multi-Source Self-Attention Module. During b) Appearance-disentangled Pose Control, we jointly fine-tune the Appearance Control Model, initialized with weights from a), and the Pose ControlNet. After these steps, we freeze all previously trained modules and fine-tune a motion module initialized with AnimateDiff.
@@ -261,7 +261,7 @@ with Motions & Facial Expressions Transfer</h1>
         <br /> -->
         <br />
         <h3 class="title is-4">2. Zero-Shot Animation</h3>
-        <img src="./static/images/animation.jpg" class="interpolation-image" alt="Empty"/>
+        <img width="1000px" src="./static/images/zeroshot_1.png" class="interpolation-image" alt="Empty"/>
         <br />
         <img src="./static/images/Figure11_cropped.jpg" class="interpolation-image" alt="Empty"/>
         <br />
@@ -325,6 +325,12 @@ with Motions & Facial Expressions Transfer</h1>
         <p>
           <br />
           Qualitative comparison of human video generation between <a href="https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model">TPS</a>, <a href="https://disco-dance.github.io/">Disco</a> and MagicDance. Previous methods obviously suffer from inconsistent facial expressions and human pose identity.
+        </p>
+        <br />
+        <center><img src="./static/images/zero_shot_2.png" class="interpolation-image" alt="Empty"/></center>
+        <p>
+          <br />
+          Qualitative comparison of zero-shot motion transfer on out-of-domain images.
         </p>
         <br />
         <h4 class="title is-5">Video Comparison</h4>
