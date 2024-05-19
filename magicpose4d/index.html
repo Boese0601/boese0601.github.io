@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MagicPose: Realistic Human Poses and Facial Expressions Retargeting with Identity-aware Diffusion.">
+  <meta name="keywords" content="Controllable Human Dance, Video Generation, Diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MagicPose4D: Crafting Articulated Models with Appearance and Motion Control</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/tiktok.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MagicPose4D: Crafting Articulated Models <br>with Appearance and Motion Control</h1>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><b>ICML 2024</b></span><br>
+          </div> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://haoz19.github.io/">Hao Zhang</a><sup>1*</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://boese0601.github.io/">Di Chang</a><sup>2*</sup>&nbsp;&nbsp;</span> 
+            <span class="author-block">
+                <a href="https://www.linkedin.com/in/fang-li-8ab696223/">Fang Li</a><sup>1</sup>&nbsp;&nbsp;
+              </span>
+            <span class="author-block">
+              <a href="https://www.ihp-lab.org/">Mohammad Soleymani</a><sup>2<span>&#8224;</span></sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://vision.ai.illinois.edu/narendra-ahuja/">Narendra Ahuja</a><sup>1<span>&#8224;</span></sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign</span> &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>University of Southern California,</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup><span>&#8224;</span></sup>Equal Advising</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2311.12052.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2311.12052"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=VPJe6TyrT-Y"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Boese0601/MagicDance"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="static/images/Teaser.png" alt="empty">
+        <p>
+          <br />
+          We introduce MagicPose4D, a novel framework for 4D generation providing more accurate and customizable 4D motion retargeting. We propose a dual-phase reconstruction process that initially uses accurate 2D and pseudo 3D supervision without skeleton constraints, and subsequently refines the model with skeleton constraints to ensure physical plausibility. We incorporate a novel Global-Local Chamfer loss function that aligns the overall distribution of mesh vertices with the supervision and maintains part-level alignment without additional annotations.
+Our method enables cross-category motion transfer using a kinematic-chain-based skeleton, ensuring smooth transitions between frames through dynamic rigidity and achieving robust generalization without the need for additional training.
+        </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work, we propose MagicPose, a diffusion-based model for 2D human motion and facial expression transfer on challenging human dance videos. Specifically, we aim to generate human dance videos of any target identity driven by novel pose sequences while keeping the identity unchanged. To this end, we propose a two-stage training strategy to disentangle human motions and appearance (e.g., facial expressions, skin tone and dressing), consisting of the pretraining of an appearance-control block and fine-tuning of an appearance-pose-joint-control block over human dance poses of the same dataset. Our novel design enables robust appearance control with temporally consistent upper body, facial attributes, and even background. The model also generalizes well on unseen human identities and complex motion sequences without the need for any fine-tuning with additional data with diverse human attributes by leveraging the prior knowledge of image diffusion models. Moreover, the proposed model is easy to use and can be considered as a plug-in module/extension to Stable Diffusion. We also demonstrate the model's ability for zero-shot 2D animation generation, enabling not only the appearance transfer from one identity to another but also allowing for cartoon-like stylization given only pose inputs. Extensive experiments demonstrate our superior performance on the TikTok dataset. 
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video Demo</h2>
+        <div class="publication-video">
+          <iframe src="./static/images/demo/main_4.mp4"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+
+        <!-- Interpolating. -->
+        <img src="./static/images/Pipeline.png" class="interpolation-image" alt="Interpolate start reference image."/>
+        <p>
+          <br />
+          Overview of the proposed MagicPose pipeline for controllable human dance video generation with motions & facial expressions transfer.  The Appearance Control Model is a copy of the entire Stable-Diffusion UNet, initialized with the same weight. The Stable-Diffusion UNet is frozen throughout the training. During a) Appearance Control Pretraining, we train the appearance control model and its Multi-Source Self-Attention Module. During b) Appearance-disentangled Pose Control, we jointly fine-tune the Appearance Control Model, initialized with weights from a), and the Pose ControlNet. After these steps, we freeze all previously trained modules and fine-tune a motion module initialized with AnimateDiff.
+        </p>
+      <!--/ Interpolating. -->
+      </div>
+    </div>
+    <!--/ Method. -->
+    <br />
+    <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <h3 class="title is-4">1. Human Motion and Facial Expression Transfer</h3>
+        <img src="./static/images/Supp_TikTok_1.jpg" class="interpolation-image" alt="Empty"/>
+        <br />
+        <img src="./static/images/Supp_TikTok_2.jpg" class="interpolation-image" alt="Empty"/>
+        <br />
+        <p>
+          Visualization of Human Motion and Facial Expression Transfer. MagicPose is able to generate vivid and realistic motion and expressions under the condition of diverse pose skeleton and face landmark input, while accurately maintaining identity information from the reference image input.
+        </p>
+        <br />
+        <h4 class="title is-5">Video Results</h4>
+        <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/0.mp4" type="video/mp4">
+        </video> -->
+        <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/1.mp4" type="video/mp4">
+        </video> -->
+        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/2.mp4" type="video/mp4">
+        </video>
+        <p><center>
+          <span style="display: inline-block;width: 14.9%;">GT</span>
+          <span style="display: inline-block;width: 23.9%;">Pose</span>
+          <span style="display: inline-block;width: 18.9%;">TPS</span>
+          <span style="display: inline-block;width: 18.9%;">Disco</span>
+          <span style="display: inline-block;width: 19.9%;">MagicPose</span></center></p>
+        <!-- <p><center>
+          <span style="margin: 0 73px">GT</span>
+          <span style="margin: 0 73px">Pose</span>
+          <span style="margin: 0 73px">TPS</span>
+          <span style="margin: 0 73px">Disco</span>
+          <span style="margin: 0 73px">Ours</span>
+        </center></p> -->
+        <br />
+
+        <!-- <h4 class="title is-5">Video Results</h4>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/demo/pose.gif"
+                 alt="Interpolate start reference image."
+                 width="300" />
+            <p>Condition</p>
+          </div>
+          <div class="column has-text-centered">
+            <img src="./static/images/demo/reference.jpeg"
+                 alt="Interpolation end reference image."
+                 width="100%" />
+            <p>Reference</p>
+          </div>
+        </div>
+        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/images/demo/gen.mp4" type="video/mp4">
+        </video>
+        <p><center>Generated video</center></p> -->
+        <!-- <br />
+        <br />
+        <br />
+        <br />
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/demo/pose.gif"
+                 alt="Interpolate start reference image."
+                 width="300" />
+            <p>Condition</p>
+          </div>
+          <div class="column has-text-centered">
+            <img src="./static/images/demo/ref_1.jpeg"
+                 alt="Interpolation end reference image."
+                 width="100%" />
+            <p>Reference</p>
+          </div>
+        </div>
+        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/images/demo/gen_1.mp4" type="video/mp4">
+        </video>
+        <p><center>Generated video</center></p>
+        <br /> -->
+        <br />
+        <h3 class="title is-4">2. Zero-Shot Animation</h3>
+        <img width="1000px" src="./static/images/zeroshot_1.png" class="interpolation-image" alt="Empty"/>
+        <br />
+        <img src="./static/images/Figure11_cropped.jpg" class="interpolation-image" alt="Empty"/>
+        <br />
+        <p>
+          <br />
+          Visualization of Zero-Shot 2D Animation Generation. MagicPose can provide a precise generation with identity information from cartoon-style images even without any further fine-tuning after being trained on real-human dance videos.  
+        </p>
+        <br />
+        <h4 class="title is-5">Video Results</h4>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/videos/pose.gif"
+                 alt="Interpolate start reference image."
+                 width="180" />
+            <p>Condition</p>
+          </div>
+          <div class="column has-text-centered">
+            <img src="./static/images/reference.png"
+                 alt="Interpolation end reference image."
+                 width="100%" />
+            <p>Reference</p>
+          </div>
+        </div>
+        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/gen.mp4" type="video/mp4">
+        </video>
+        <p><center>Generated video</center></p>
+        <!-- <br />
+        <br />
+        <br />
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/demo/pose.gif"
+                 alt="Interpolate start reference image."
+                 width="130" />
+            <p>Condition</p>
+          </div>
+          <div class="column has-text-centered">
+            <img src="./static/images/demo/civitai.png"
+                 alt="Interpolation end reference image."
+                 width="1000" />
+            <p>Reference</p>
+          </div>
+        </div>
+        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/images/demo/civitai.mp4" type="video/mp4">
+        </video>
+        <p><center>Generated video</center></p>
+        <br /> -->
+      </div>
+    </div>
+    <!--/ Results. -->
+    <br />
+    <!-- Compare -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparison to Recent Works</h2>
+        <h3 class="title is-4">Qualitative Compare</h3>
+        <img src="./static/images/comparison_cropped.png" class="interpolation-image" alt="Empty"/>
+        <br> <br>
+        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/1.mp4" type="video/mp4">
+        </video>
+        <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/2.mp4" type="video/mp4">
+        </video> -->
+        <p><center>
+          <span style="display: inline-block;width: 14.9%;">GT</span>
+          <span style="display: inline-block;width: 23.9%;">Pose</span>
+          <span style="display: inline-block;width: 18.9%;">TPS</span>
+          <span style="display: inline-block;width: 18.9%;">Disco</span>
+          <span style="display: inline-block;width: 19.9%;">MagicPose</span></center></p>
+        <p>
+          <br/>
+          Qualitative comparison of human video generation between <a href="https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model">TPS</a>, <a href="https://disco-dance.github.io/">Disco</a> and MagicPose. Previous methods obviously suffer from inconsistent facial expressions and human pose identity.
+        </p>
+        <br />
+        <center><img src="./static/images/zero_shot_2.png" class="interpolation-image" alt="Empty"/></center>
+        <p>
+          <br />
+          Qualitative comparison of zero-shot motion transfer on out-of-domain images.
+        </p>
+        <br />
+        <h3 class="title is-4">Comparison to Animate Anyone</h3>
+        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/Comp_3.mp4" type="video/mp4">
+        </video>
+        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/Comp_2.mp4" type="video/mp4">
+        </video>
+        <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/Comp_1.mp4" type="video/mp4">
+        </video> -->
+        <p><center>
+          <span style="display: inline-block;width: 24%;">Reference</span>
+          <span style="display: inline-block;width: 26%;">Pose</span>
+          <span style="display: inline-block;width: 24%;">Animate Anyone</span>
+          <span style="display: inline-block;width: 24%;">MagicPose</span></center></p>
+        <p>
+          <br />
+          Qualitative comparison of zero-shot motion transfer on out-of-domain images to Animate Anyone. Animate Anyone fails to generate steady and consistent background while MagicPose is able to.
+        </p>
+        <br /> 
+        <h3 class="title is-4">Comparison to MagicAnimate</h3>
+        <center><img src="./static/images/magicanimate_1.png" class="interpolation-image" alt="Empty"/></center>
+        <p>
+          <br />
+          Qualitative comparison of MagicPose to MagicAnimate on Facial Expression Editing. MagicAnimate fails to generate diverse facial expressions, while MagicPose is able to.
+        </p>
+        <br />         
+        <center><img src="./static/images/magicanimate_2.png" class="interpolation-image" alt="Empty"/></center>
+        <p>
+          <br />
+          Qualitative comparison of MagicPose to MagicAnimate on in-the-wild pose retargeting. MagicAnimate fails to generate the back of the human subject, while MagicPose is able to.
+        </p>
+        <br /> 
+
+        <h3 class="title is-4">Quantitative Compare</h3>
+        <br />
+        <img src="./static/images/table1.jpeg" class="interpolation-image" alt="Empty"/>
+        <br />
+        <p>
+          Quantitative comparisons of MagicPose with the recent SOTA methods <a href="https://grail.cs.washington.edu/projects/dreampose/">DreamPose</a> and <a href="https://disco-dance.github.io/">Disco</a>. &#8595; indicates that the lower the better, and vice versa. Methods with * directly use the target image as the input, including more information compared to the OpenPose. &dagger; represents that Disco is pre-trained on other datasets more than our proposed MagicPose, which uses only 335 video sequences in the TikTok dataset for pretraning and fine-tuning. <b>Face-Cos</b> represents the cosine similarity of the face area between generation and ground truth image.
+        </p>
+      </div>
+    </div>
+    <!--/ Compare. -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{chang2024magicpose,
+      title={MagicPose: Realistic Human Poses and Facial Expressions Retargeting with Identity-aware Diffusion}, 
+      author={Di Chang and Yichun Shi and Quankai Gao and Jessica Fu and Hongyi Xu and Guoxian Song and Qing Yan and Yizhe Zhu and Xiao Yang and Mohammad Soleymani},
+      year={2024},
+      eprint={2311.12052},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
