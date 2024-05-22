@@ -32,7 +32,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/tiktok.svg">
+  <link rel="icon" href="./static/images/doge.ico">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -110,7 +110,7 @@
                 </a>
               </span>
               <!-- Video Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=VPJe6TyrT-Y"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -118,7 +118,7 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/Boese0601/MagicDance"
@@ -138,6 +138,8 @@
   </div>
 </section>
 
+
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -151,34 +153,19 @@ Our method enables cross-category motion transfer using a kinematic-chain-based 
   </div>
 </section>
 
-<section class="section">
+<section class="hero teaser">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            In this work, we propose MagicPose, a diffusion-based model for 2D human motion and facial expression transfer on challenging human dance videos. Specifically, we aim to generate human dance videos of any target identity driven by novel pose sequences while keeping the identity unchanged. To this end, we propose a two-stage training strategy to disentangle human motions and appearance (e.g., facial expressions, skin tone and dressing), consisting of the pretraining of an appearance-control block and fine-tuning of an appearance-pose-joint-control block over human dance poses of the same dataset. Our novel design enables robust appearance control with temporally consistent upper body, facial attributes, and even background. The model also generalizes well on unseen human identities and complex motion sequences without the need for any fine-tuning with additional data with diverse human attributes by leveraging the prior knowledge of image diffusion models. Moreover, the proposed model is easy to use and can be considered as a plug-in module/extension to Stable Diffusion. We also demonstrate the model's ability for zero-shot 2D animation generation, enabling not only the appearance transfer from one identity to another but also allowing for cartoon-like stylization given only pose inputs. Extensive experiments demonstrate our superior performance on the TikTok dataset. 
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Abstract. -->
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video Demo</h2>
-        <div class="publication-video">
-          <iframe src="./static/images/demo/main_4.mp4"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
+    <div class="hero-body">
+      <h2 class="title is-3">Video</h2>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/long_video0001-0300.mp4"
+        type="video/mp4">
+      </video>
+      </h2>
     </div>
-    <!--/ Paper video. -->
   </div>
 </section>
-
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -191,213 +178,429 @@ Our method enables cross-category motion transfer using a kinematic-chain-based 
         <img src="./static/images/Pipeline.png" class="interpolation-image" alt="Interpolate start reference image."/>
         <p>
           <br />
-          Overview of the proposed MagicPose pipeline for controllable human dance video generation with motions & facial expressions transfer.  The Appearance Control Model is a copy of the entire Stable-Diffusion UNet, initialized with the same weight. The Stable-Diffusion UNet is frozen throughout the training. During a) Appearance Control Pretraining, we train the appearance control model and its Multi-Source Self-Attention Module. During b) Appearance-disentangled Pose Control, we jointly fine-tune the Appearance Control Model, initialized with weights from a), and the Pose ControlNet. After these steps, we freeze all previously trained modules and fine-tune a motion module initialized with AnimateDiff.
+          MagicPose4D accepts two distinct types of input prompts: (i) appearance prompts and (ii) motion prompts. Both images and textual descriptions can function as appearance prompts, delineating the desired object and its visual characteristics. In a departure from existing approaches, MagicPose4D enables users to specify precise motions and trajectories by providing a video/mesh sequence that represents the anticipated movement. MagicPose4D comprises three critical components: (i) the 4D Reconstruction module, (ii) the Cross-Category Motion Transfer module, and (iii) the Image-to-3D Generation module. Each module is tailored to facilitate distinct aspects of dynamic modeling, enabling adaptive 4D reconstructions that align with user-defined specifications. 
         </p>
       <!--/ Interpolating. -->
       </div>
     </div>
-    <!--/ Method. -->
-    <br />
-    <!-- Results -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Results</h2>
-        <h3 class="title is-4">1. Human Motion and Facial Expression Transfer</h3>
-        <img src="./static/images/Supp_TikTok_1.jpg" class="interpolation-image" alt="Empty"/>
-        <br />
-        <img src="./static/images/Supp_TikTok_2.jpg" class="interpolation-image" alt="Empty"/>
-        <br />
-        <p>
-          Visualization of Human Motion and Facial Expression Transfer. MagicPose is able to generate vivid and realistic motion and expressions under the condition of diverse pose skeleton and face landmark input, while accurately maintaining identity information from the reference image input.
-        </p>
-        <br />
-        <h4 class="title is-5">Video Results</h4>
-        <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/0.mp4" type="video/mp4">
-        </video> -->
-        <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/1.mp4" type="video/mp4">
-        </video> -->
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/2.mp4" type="video/mp4">
-        </video>
-        <p><center>
-          <span style="display: inline-block;width: 14.9%;">GT</span>
-          <span style="display: inline-block;width: 23.9%;">Pose</span>
-          <span style="display: inline-block;width: 18.9%;">TPS</span>
-          <span style="display: inline-block;width: 18.9%;">Disco</span>
-          <span style="display: inline-block;width: 19.9%;">MagicPose</span></center></p>
-        <!-- <p><center>
-          <span style="margin: 0 73px">GT</span>
-          <span style="margin: 0 73px">Pose</span>
-          <span style="margin: 0 73px">TPS</span>
-          <span style="margin: 0 73px">Disco</span>
-          <span style="margin: 0 73px">Ours</span>
-        </center></p> -->
-        <br />
+  </div>
+</section>
 
-        <!-- <h4 class="title is-5">Video Results</h4>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/demo/pose.gif"
-                 alt="Interpolate start reference image."
-                 width="300" />
-            <p>Condition</p>
-          </div>
-          <div class="column has-text-centered">
-            <img src="./static/images/demo/reference.jpeg"
-                 alt="Interpolation end reference image."
-                 width="100%" />
-            <p>Reference</p>
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3">Motion Transfer of Various Objects</h2>
+          <h2 class="title is-4">Humanoid</h2>
+          <div id="results-carousel11" class="carousel results-carousel">
+            <div class="item item-video1">
+              <video poster="" id="video1" autoplay controls muted loop height="300%">
+                <!-- Your video file here -->
+                <source src="static/videos/demo11.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <video poster="" id="video2" autoplay controls muted loop height="300%">
+                <!-- Your video file here -->
+                <source src="static/videos/demo12.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo13.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo15.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo17.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo18.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo6.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo5.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo4.mp4"
+                type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/images/demo/gen.mp4" type="video/mp4">
-        </video>
-        <p><center>Generated video</center></p> -->
-        <!-- <br />
-        <br />
-        <br />
-        <br />
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/demo/pose.gif"
-                 alt="Interpolate start reference image."
-                 width="300" />
-            <p>Condition</p>
-          </div>
-          <div class="column has-text-centered">
-            <img src="./static/images/demo/ref_1.jpeg"
-                 alt="Interpolation end reference image."
-                 width="100%" />
-            <p>Reference</p>
+      </div>
+    </section>
+    <!-- End video carousel -->
+    
+    
+    <!-- Video carousel -->
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-4">Animals</h2>
+          <div id="results-carousel22" class="carousel results-carousel">
+            <div class="item item-video1">
+              <video poster="" id="video1" autoplay controls muted loop height="300%">
+                <!-- Your video file here -->
+                <source src="static/videos/demo2.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <video poster="" id="video2" autoplay controls muted loop height="300%">
+                <!-- Your video file here -->
+                <source src="static/videos/demo1.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo7.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo8.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo3.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo9.mp4"
+                type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/images/demo/gen_1.mp4" type="video/mp4">
-        </video>
-        <p><center>Generated video</center></p>
-        <br /> -->
-        <br />
-        <h3 class="title is-4">2. Zero-Shot Animation</h3>
-        <img width="1000px" src="./static/images/zeroshot_1.png" class="interpolation-image" alt="Empty"/>
-        <br />
-        <img src="./static/images/Figure11_cropped.jpg" class="interpolation-image" alt="Empty"/>
-        <br />
+      </div>
+    </section>
+    <!-- End video carousel -->
+
+    <!-- Video carousel -->
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-4">Other Objects</h2>
+          <div id="results-carousel22" class="carousel results-carousel">
+            <div class="item item-video1">
+              <video poster="" id="video1" autoplay controls muted loop height="300%">
+                <!-- Your video file here -->
+                <source src="static/videos/demo2.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <video poster="" id="video2" autoplay controls muted loop height="300%">
+                <!-- Your video file here -->
+                <source src="static/videos/demo1.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo7.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo8.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo3.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/demo9.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End video carousel -->
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-3">Comparisons</h2>
+      <h2 class="title is-4">Fashion Video Synthesis</h2> -->
+      <div id="results-carousel33" class="carousel results-carousel">
+
+      </div>
+      <!-- <h2 class="content has-text-centered">
+        Fashion Video Synthesis aims to turn fashion photographs into realistic, animated videos using a driving pose sequence. Experiments are conducted on the UBC fashion video dataset with same training data. -->
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+      <div class="container is-max-desktop">
+        
+      <h2 class="title is-3">Comparison to Other Pose Transfer Methods</h2>
+      <h2 class="title is-4">Animals</h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <p>
+            <center>
+              <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+              <span style="display: inline-block;width: 23.9%;">Ours</span>
+              <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+              <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+            </center>
+          </p>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop>
+            <source src="static/videos/deer_attack3_pig.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/deer_attack1_pig.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/deer_attack2_horse.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/bear_death_horse.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/rabbit_run_pig.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <p>
+        <center>
+          <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+          <span style="display: inline-block;width: 23.9%;">Ours</span>
+          <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+          <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+        </center>
+      </p>
+      <br /><br /><br />
+      <h3 class="title is-4">Humanoid</h3>
+      <div id="results-carousel33" class="carousel results-carousel">
         <p>
-          <br />
-          Visualization of Zero-Shot 2D Animation Generation. MagicPose can provide a precise generation with identity information from cartoon-style images even without any further fine-tuning after being trained on real-human dance videos.  
+          <center>
+            <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+            <span style="display: inline-block;width: 23.9%;">Ours</span>
+            <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+            <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+          </center>
         </p>
-        <br />
-        <h4 class="title is-5">Video Results</h4>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/videos/pose.gif"
-                 alt="Interpolate start reference image."
-                 width="180" />
-            <p>Condition</p>
-          </div>
-          <div class="column has-text-centered">
-            <img src="./static/images/reference.png"
-                 alt="Interpolation end reference image."
-                 width="100%" />
-            <p>Reference</p>
-          </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop>
+            <source src="static/videos/hiphop_kingkong0001-0100.mp4" type="video/mp4">
+          </video>
         </div>
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/gen.mp4" type="video/mp4">
-        </video>
-        <p><center>Generated video</center></p>
-        <!-- <br />
-        <br />
-        <br />
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/demo/pose.gif"
-                 alt="Interpolate start reference image."
-                 width="130" />
-            <p>Condition</p>
-          </div>
-          <div class="column has-text-centered">
-            <img src="./static/images/demo/civitai.png"
-                 alt="Interpolation end reference image."
-                 width="1000" />
-            <p>Reference</p>
-          </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/hiphop_penguin0001-0100.mp4" type="video/mp4">
+          </video>
         </div>
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/images/demo/civitai.mp4" type="video/mp4">
-        </video>
-        <p><center>Generated video</center></p>
-        <br /> -->
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/hiphop_panda0001-0100.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/drunkwalk_kingkong0001-0100.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/drunkwalk_panda0001-0100.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <p>
+        <center>
+          <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+          <span style="display: inline-block;width: 23.9%;">Ours</span>
+          <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+          <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+        </center>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- <p>
+  <center>
+    <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+    <span style="display: inline-block;width: 23.9%;">Ours</span>
+    <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+    <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+  </center>
+</p> -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Comparison to Image-to-4D Generation Method</h2>
+      <h2 class="title is-4">"Hip-Hop Dancing"</h2>
+      <div id="results-carousel" class="carousel results-carousel" style="display: flex; justify-content: space-around; align-items: center;">
+        
+        <!-- Reference -->
+        <div style="text-align: center;">
+          <img src="static/videos/comp_animate124/kong.png" alt="Reference" style="max-width: 300px;">
+          <p>Reference</p>
+        </div>
+        
+        <!-- Animate124 -->
+        <div style="text-align: center;">
+          <video width="300" autoplay controls muted loop>
+            <source src="static/videos/comp_animate124/video_1.mp4" type="video/mp4">
+          </video>
+          <p>Animate124</p>
+        </div>
+        
+        <!-- Ours -->
+        <div style="text-align: center;">
+          <video width="300" autoplay controls muted loop>
+            <source src="static/videos/comp_animate124/video_1_ours.mp4" type="video/mp4">
+          </video>
+          <p>Ours</p>
+        </div>
+
+
       </div>
     </div>
-    <!--/ Results. -->
-    <br />
-    <!-- Compare -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Comparison to Recent Works</h2>
-        <h3 class="title is-4">Qualitative Compare</h3>
-        <img src="./static/images/comparison_cropped.png" class="interpolation-image" alt="Empty"/>
-        <br> <br>
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/1.mp4" type="video/mp4">
-        </video>
-        <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/2.mp4" type="video/mp4">
-        </video> -->
-        <p><center>
-          <span style="display: inline-block;width: 14.9%;">GT</span>
-          <span style="display: inline-block;width: 23.9%;">Pose</span>
-          <span style="display: inline-block;width: 18.9%;">TPS</span>
-          <span style="display: inline-block;width: 18.9%;">Disco</span>
-          <span style="display: inline-block;width: 19.9%;">MagicPose</span></center></p>
-        <p>
-          <br/>
-          Qualitative comparison of human video generation between <a href="https://github.com/yoyo-nb/Thin-Plate-Spline-Motion-Model">TPS</a>, <a href="https://disco-dance.github.io/">Disco</a> and MagicPose. Previous methods obviously suffer from inconsistent facial expressions and human pose identity.
-        </p>
-        <br />
-        <center><img src="./static/images/zero_shot_2.png" class="interpolation-image" alt="Empty"/></center>
-        <p>
-          <br />
-          Qualitative comparison of zero-shot motion transfer on out-of-domain images.
-        </p>
-        <br />
-        <h3 class="title is-4">Comparison to Animate Anyone</h3>
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/Comp_3.mp4" type="video/mp4">
-        </video>
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/Comp_2.mp4" type="video/mp4">
-        </video>
-        <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./static/videos/Comp_1.mp4" type="video/mp4">
-        </video> -->
-        <p><center>
-          <span style="display: inline-block;width: 24%;">Reference</span>
-          <span style="display: inline-block;width: 26%;">Pose</span>
-          <span style="display: inline-block;width: 24%;">Animate Anyone</span>
-          <span style="display: inline-block;width: 24%;">MagicPose</span></center></p>
-        <p>
-          <br />
-          Qualitative comparison of zero-shot motion transfer on out-of-domain images to Animate Anyone. Animate Anyone fails to generate steady and consistent background while MagicPose is able to.
-        </p>
-        <br /> 
-        <h3 class="title is-4">Comparison to MagicAnimate</h3>
-        <center><img src="./static/images/magicanimate_1.png" class="interpolation-image" alt="Empty"/></center>
-        <p>
-          <br />
-          Qualitative comparison of MagicPose to MagicAnimate on Facial Expression Editing. MagicAnimate fails to generate diverse facial expressions, while MagicPose is able to.
-        </p>
-        <br />         
-        <center><img src="./static/images/magicanimate_2.png" class="interpolation-image" alt="Empty"/></center>
-        <p>
-          <br />
-          Qualitative comparison of MagicPose to MagicAnimate on in-the-wild pose retargeting. MagicAnimate fails to generate the back of the human subject, while MagicPose is able to.
-        </p>
-        <br /> 
+  </div>
+</section>
 
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+<h2 class="title is-4">"Running like a rabit"</h2>
+<div id="results-carousel" class="carousel results-carousel" style="display: flex; justify-content: space-around; align-items: center;">
+  
+  <!-- Reference -->
+  <div style="text-align: center;">
+    <img src="static/videos/comp_animate124/pig.jpg" alt="Reference" style="max-width: 300px;">
+    <p>Reference</p>
+  </div>
+  
+  <!-- Animate124 -->
+  <div style="text-align: center;">
+    <video width="300" autoplay controls muted loop>
+      <source src="static/videos/comp_animate124/video_2.mp4" type="video/mp4">
+    </video>
+    <p>Animate124</p>
+  </div>
+  
+  <!-- Ours -->
+  <div style="text-align: center;">
+    <video width="300" autoplay controls muted loop>
+      <source src="static/videos/comp_animate124/video_2_ours.mp4" type="video/mp4">
+    </video>
+    <p>Ours</p>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+<h2 class="title is-4">"Attacking with head"</h2>
+<div id="results-carousel" class="carousel results-carousel" style="display: flex; justify-content: space-around; align-items: center;">
+  
+  <!-- Reference -->
+  <div style="text-align: center;">
+    <img src="static/videos/comp_animate124/pig.jpg" alt="Reference" style="max-width: 300px;">
+    <p>Reference</p>
+  </div>
+  
+  <!-- Animate124 -->
+  <div style="text-align: center;">
+    <video width="300" autoplay controls muted loop>
+      <source src="static/videos/comp_animate124/video2.mp4" type="video/mp4">
+    </video>
+    <p>Animate124</p>
+  </div>
+  
+  <!-- Ours -->
+  <div style="text-align: center;">
+    <video width="300" autoplay controls muted loop>
+      <source src="static/videos/comp_animate124/video2_ours.mp4" type="video/mp4">
+    </video>
+    <p>Ours</p>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+        <div class="column is-full-width">
         <h3 class="title is-4">Quantitative Compare</h3>
         <br />
         <img src="./static/images/table1.jpeg" class="interpolation-image" alt="Empty"/>
@@ -407,9 +610,8 @@ Our method enables cross-category motion transfer using a kinematic-chain-based 
         </p>
       </div>
     </div>
-    <!--/ Compare. -->
   </div>
-</section>
+</section> -->
 
 
 <section class="section" id="BibTeX">
