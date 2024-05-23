@@ -138,17 +138,43 @@
   </div>
 </section>
 
-
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/teaser1.mp4"
+        type="video/mp4">
+      </video>
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser video -->
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-        <img src="static/images/Teaser.png" alt="empty">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/ours/hiphop-1-humanoid.mp4"
+        type="video/mp4">
+      </video>
+          <video width="" autoplay controls muted loop height="100%">
+            <source src="static/videos/ours/deerattack-1-animal.mp4"
+             type="video/mp4">
+          </video>
+          <video width="" autoplay controls muted loop height="100%">
+            <source src="static/videos/ours/walkback-1-animal.mp4" 
+            type="video/mp4">
+          </video>
+      </div>
         <p>
-          <br />
           We introduce MagicPose4D, a novel framework for 4D generation providing more accurate and customizable 4D motion retargeting. We propose a dual-phase reconstruction process that initially uses accurate 2D and pseudo 3D supervision without skeleton constraints, and subsequently refines the model with skeleton constraints to ensure physical plausibility. We incorporate a novel Global-Local Chamfer loss function that aligns the overall distribution of mesh vertices with the supervision and maintains part-level alignment without additional annotations.
 Our method enables cross-category motion transfer using a kinematic-chain-based skeleton, ensuring smooth transitions between frames through dynamic rigidity and achieving robust generalization without the need for additional training.
         </p>
+        </br>
+        <img src="static/images/Teaser.png" alt="empty">
     </div>
   </div>
 </section>
@@ -190,69 +216,17 @@ Our method enables cross-category motion transfer using a kinematic-chain-based 
     <section class="hero is-small is-light">
       <div class="hero-body">
         <div class="container">
-          <h2 class="title is-3">Motion Transfer of Various Objects</h2>
-          <h2 class="title is-4">Humanoid</h2>
           <div id="results-carousel11" class="carousel results-carousel">
             <div class="item item-video1">
-              <video poster="" id="video1" autoplay controls muted loop height="300%">
-                <!-- Your video file here -->
-                <source src="static/videos/demo11.mp4"
+              <video poster="" id="video1" autoplay controls muted loop height="100%">
+                <source src=""
                 type="video/mp4">
               </video>
             </div>
             <div class="item item-video2">
-              <video poster="" id="video2" autoplay controls muted loop height="300%">
+              <video poster="" id="video2" autoplay controls muted loop height="100%">
                 <!-- Your video file here -->
-                <source src="static/videos/demo12.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo13.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo15.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo17.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo18.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo6.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo5.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo4.mp4"
+                <source src=""
                 type="video/mp4">
               </video>
             </div>
@@ -267,109 +241,44 @@ Our method enables cross-category motion transfer using a kinematic-chain-based 
     <section class="hero is-small is-light">
       <div class="hero-body">
         <div class="container">
-          <h2 class="title is-4">Animals</h2>
+          <h2 class="title is-3">Multi-View 4D Generation</h2>
+          <h2 class="title is-4">Animal</h2>
           <div id="results-carousel22" class="carousel results-carousel">
-            <div class="item item-video1">
-              <video poster="" id="video1" autoplay controls muted loop height="300%">
-                <!-- Your video file here -->
-                <source src="static/videos/demo2.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video2">
-              <video poster="" id="video2" autoplay controls muted loop height="300%">
-                <!-- Your video file here -->
-                <source src="static/videos/demo1.mp4"
-                type="video/mp4">
-              </video>
-            </div>
+          
             <div class="item item-video3">
               <video poster="" id="video3" autoplay controls muted loop height="300%">\
                 <!-- Your video file here -->
-                <source src="static/videos/demo7.mp4"
+                <source src="static/videos/ours/multi-view-1.mp4"
                 type="video/mp4">
               </video>
             </div>
+            
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-4">Humanoid</h2>
+          <div id="results-carousel22" class="carousel results-carousel">
+          
             <div class="item item-video3">
               <video poster="" id="video3" autoplay controls muted loop height="300%">\
                 <!-- Your video file here -->
-                <source src="static/videos/demo8.mp4"
+                <source src="static/videos/ours/multi-view-2.mp4"
                 type="video/mp4">
               </video>
             </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo3.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo9.mp4"
-                type="video/mp4">
-              </video>
-            </div>
+
           </div>
         </div>
       </div>
     </section>
     <!-- End video carousel -->
 
-    <!-- Video carousel -->
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-4">Other Objects</h2>
-          <div id="results-carousel22" class="carousel results-carousel">
-            <div class="item item-video1">
-              <video poster="" id="video1" autoplay controls muted loop height="300%">
-                <!-- Your video file here -->
-                <source src="static/videos/demo2.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video2">
-              <video poster="" id="video2" autoplay controls muted loop height="300%">
-                <!-- Your video file here -->
-                <source src="static/videos/demo1.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo7.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo8.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo3.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-            <div class="item item-video3">
-              <video poster="" id="video3" autoplay controls muted loop height="300%">\
-                <!-- Your video file here -->
-                <source src="static/videos/demo9.mp4"
-                type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End video carousel -->
 
 
 
