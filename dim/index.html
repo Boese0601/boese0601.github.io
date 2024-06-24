@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MagicPose: Realistic Human Poses and Facial Expressions Retargeting with Identity-aware Diffusion.">
+  <meta name="keywords" content="Controllable Human Dance, Video Generation, Diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MagicPose4D: Crafting Articulated Models with Appearance and Motion Control</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/doge.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="section">
+  <!-- <div class="hero-body"> -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Dyadic Interaction Modeling <br>for Social Behavior Generation</h1>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><b>ICML 2024</b></span><br>
+          </div> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=en&user=HuuQRj4AAAAJ">Minh Tran</a><sup>*</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://boese0601.github.io/">Di Chang</a><sup>*</sup>&nbsp;&nbsp;</span> 
+            <span class="author-block">
+                <a href="https://scholar.google.com/citations?hl=en&user=5w0f0OQAAAAJ/">Maksim Siniukov</a>&nbsp;&nbsp;
+              </span>
+            <span class="author-block">
+              <a href="https://www.ihp-lab.org/">Mohammad Soleymani</a></span>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Southern California</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2403.09069"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.09069"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=VPJe6TyrT-Y"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Boese0601/Dyadic-Interaction-Modeling"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</section>
+
+
+
+<section class="hero">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered">
+        <div class="container is-clipped">
+        <div class="column is-full-width">
+        <div id="slider">
+          <div class="card">
+    
+            <div class="card-image">
+              <center>
+              <p class="card-text"> <b>Please turn on speaker for audio.</b>   <br>
+
+                &nbsp &nbsp  Portraits source: <a href="https://project.mhzhou.com/vico/">ViCo Dataset</a>
+              <br>
+                 <br>
+            </p>
+          </center>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/Demo1.mp4"
+        type="video/mp4">
+      </video>
+
+
+          <video width="" autoplay controls muted loop height="100%">
+            <source src="static/videos/Demo2.mp4"
+             type="video/mp4">
+          </video>
+
+
+          <video width="" autoplay controls muted loop height="100%">
+            <source src="static/videos/Demo3.mp4" 
+            type="video/mp4">
+          </video>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>    
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Overview</h2>
+        <img src="static/images/teaser.png" alt="empty">
+        </h2>
+        <p>
+        <br/>
+        We propose Dyadic Interaction Modeling, 
+        a pre-training strategy that jointly models speakers’ and listeners’ motions and learns representations that capture the dyadic context. 
+        We then utilize the pre-trained weights and feed multimodal inputs from the speaker into DIM-Listener. 
+        DIM-Listener is capable of generating photorealistic videos for the listener's motion.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Pretraining: Dyadic Interaction Modeling</h2>
+
+        <!-- Interpolating. -->
+        <img src="./static/images/pretrain.png" class="interpolation-image" alt="Interpolate start reference image."/>
+        <p>
+          <br />
+          <p>
+            Dyadic Interaction Modeling learns a unified speaker-listener representation from dyadic interactions. 
+            The framework takes both the ground-truth speaker motion \(s\) and the listener motion \(l\) as input.
+            VQ-Encoders of speaker and listener then encode the motions to discrete units (discrete latent codes) \(z^{(s)}\) and \(z^{(l)}\).
+            The masked speaker's and listener's motions are further encoded and concatenated so that a unified representation is learned with contrastive loss.
+            Then, the split unified representation and speaker audio feature \(a\) are decoded into discrete unit predictions \(z'^{(s)}\) and \(z'^{(l)}\) supervised by cross-entropy loss.
+            Finally, the generated speaker motions \(s'\) and listener motions \(l'\) are decoded from these discrete unit predictions to optimize the reconstruction loss.
+          
+          </p>
+          
+        </p>
+      <!--/ Interpolating. -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">DIM-Listener</h2>
+
+        <!-- Interpolating. -->
+        <img src="./static/images/listener.png" class="interpolation-image" alt="Interpolate start reference image."/>
+        <p>
+          <br />
+          <p>
+            For fine-tuning the model on listener motion generation, speaker input is not masked, and the listener input is entirely masked. 
+            We train the framework with the same cross-entropy loss and reconstruction loss from Dyadic Interaction Modeling while keeping the weights of listener VQ-Encoder fixed.
+          </p>
+          
+        </p>
+      <!--/ Interpolating. -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">DIM-Speaker</h2>
+
+        <!-- Interpolating. -->
+        <img src="./static/images/speaker.png" class="interpolation-image" alt="Interpolate start reference image."/>
+        <p>
+          <br />
+          <p>
+            Since we introduce a dyadic framework capturing contextualized interactions among listeners and speakers, 
+            our approach can also animate speaker motion from the speaker's speech input.
+            For Speech-Driven Speaker Generation, we fine-tune the pre-trained weights of the joint decoder and speaker VQ-Decoder from Dyadic Interaction Modeling.
+             The generated speaker's motion from DIM-Speaker is optimized by the same cross-entropy and reconstruction loss as DIM-Speaker. 
+          </p>
+          
+        </p>
+      <!--/ Interpolating. -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Photorealistic Visualizations on ViCo</h2>
+        <center>
+          <p class="card-text"> <b>Please turn on speaker for audio.</b>   <br>
+
+            &nbsp &nbsp  Portraits source: <a href="https://project.mhzhou.com/vico/">ViCo Dataset</a>
+          <br>
+             <br>
+          </p>
+        </center>
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/videos/Demo4.mp4"
+          type="video/mp4">
+        </video>
+
+
+            <video width="" autoplay controls muted loop height="100%">
+              <source src="static/videos/Demo5.mp4"
+              type="video/mp4">
+            </video>
+
+
+            <video width="" autoplay controls muted loop height="100%">
+              <source src="static/videos/Demo6.mp4" 
+              type="video/mp4">
+            </video>
+
+            <video width="" autoplay controls muted loop height="100%">
+              <source src="static/videos/Demo7.mp4" 
+              type="video/mp4">
+            </video>
+
+            <video width="" autoplay controls muted loop height="100%">
+              <source src="static/videos/Demo8.mp4" 
+              type="video/mp4">
+            </video>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+        <h3 class="title is-3">Quantitative Compare</h3>
+        <h4 class="title is-4">ViCo</h4>
+        <br />
+        <img src="./static/images/table-1.png" class="interpolation-image" alt="Empty"/>
+        <br />
+        <p>
+          Quantitative comparisons of DIM with recent SOTA methods <a href="https://project.mhzhou.com/vico/">RLHG</a>, 
+          <a href="https://evonneng.github.io/learning2listen/">L2L</a> 
+          and <a href="https://arxiv.org/abs/2310.00068">ELP</a>. 
+          &#8595; indicates that the lower the better. Methods with * didn’t release any code, and we re-implement it from scratch on our own. 
+          &dagger; represents that the corresponding method has been pre-trained on the <a href="https://www.science.org/doi/10.1126/sciadv.adf3197">CANDOR</a> dataset.
+        </p>
+        <br />
+        <h4 class="title is-4">LM_Listener</h4>
+        <br />
+        <img src="./static/images/table-2.png" class="interpolation-image" alt="Empty"/>
+        <br />
+        <p>
+          Quantitative comparisons of DIM with recent SOTA methods <a href="https://project.mhzhou.com/vico/">RLHG</a>, 
+          <a href="https://evonneng.github.io/learning2listen/">L2L</a> 
+          and <a href="https://arxiv.org/abs/2310.00068">ELP</a>. 
+          &#8595; indicates that the lower the better. Methods with * didn’t release any code, and we re-implement it from scratch on our own. 
+          &dagger; represents that the corresponding method has been pre-trained on the <a href="https://www.science.org/doi/10.1126/sciadv.adf3197">CANDOR</a> dataset.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{tran2024dyadic,
+      title={Dyadic Interaction Modeling for Social Behavior Generation},
+      author={Tran, Minh and Chang, Di and Siniukov, Maksim and Soleymani, Mohammad},
+      journal={arXiv preprint arXiv:2403.09069},
+      year={2024}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
