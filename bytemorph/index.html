@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ByteMorph: Benchmarking Instruction-Guided Image Editing with Non-Rigid Motions</title>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/bulma-carousel.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.3/dist/css/bulma-slider.min.css"> -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+  <div class="cmd-container">
+    <h1 class="cmd-main-title">
+      ByteMorph: <span class="highlight">Benchmarking Instruction-Guided Image Editing with Non-Rigid Motions</span>
+    </h1>
+    <div class="cmd-authors">
+        <a href="https://boese0601.github.io/">Di Chang<sup>1,2*</sup> </a> 
+        <a href="https://github.com/ljzycmd">Mingdeng Cao<sup>1,3*</sup> </a>
+        <a href="https://seasonsh.github.io/">Yichun Shi<sup>1</sup> </a>
+        <a href="https://www.linkedin.com/in/bo-liu-340313170">Bo Liu<sup>1,4</sup> </a>
+        <a href="https://primecai.github.io/">Shengqu Cai<sup>1,5</sup> </a>
+        <a href="https://shijiezhou-ucla.github.io/">Shijie Zhou<sup>6</sup> </a>
+        <a href="https://scholar.google.com/citations?user=78vU1IUAAAAJ&hl=en">Weilin Huang<sup>1</sup> </a>
+        <a href="https://web.stanford.edu/~gordonwz/">Gordon Wetzstein<sup>5</sup> </a>
+        <a href="https://www.ihp-lab.org/">Mohammad Soleymani<sup>2</sup> </a>
+        <a href="https://pengwangucla.github.io/peng-wang.github.io/">Peng Wang<sup>1</sup> </a>
+    </div>
+    <div class="cmd-organizations">
+        <span><sup>1</sup> ByteDance Seed </span>
+        <span><sup>2</sup> Unviersity of Southern California </span>
+        <span><sup>3</sup> The University of Tokyo </span>
+        <span><sup>4</sup> University of California Berkeley </span>
+        <span><sup>5</sup> Stanford University </span>
+        <span><sup>6</sup> University of California Los Angeles </span>
+    </div>
+    <div class="cmd-venue">TL;DR: We propose a new benchmark for instruction-guided image editing with non-rigid motions, and show that current commercial methods from the industry and SOTA methods from the acdemia are not robust to non-rigid motions.</div>
+
+    <div class="cmd-section cmd-links">
+      <a href="#" target="_blank" class="badge-link">
+        <img src="https://img.shields.io/badge/-fff?style=flat&logo=arxiv&logoColor=205081&label=" alt="arXiv">
+        <span>arXiv</span>
+      </a>
+      <a href="https://huggingface.co/datasets/Boese0601/ByteMorph-6M-Demo" target="_blank" class="badge-link">
+        <img src="https://img.shields.io/badge/-fff?style=flat&logo=huggingface&logoColor=205081&label=" alt="Hugging Face PDF">
+        <span>ByteMorph-6M</span>
+      </a>
+      <a href="https://huggingface.co/datasets/Boese0601/ByteMorph-Bench" target="_blank" class="badge-link">
+        <img src="https://img.shields.io/badge/-fff?style=flat&logo=huggingface&logoColor=205081&label=" alt="Hugging Face Dataset">
+        <span>ByteMorph-Bench</span>
+      </a>
+      <a href="https://huggingface.co/spaces/Boese0601/ByteMorph-Demo" target="_blank" class="badge-link">
+        <img src="https://img.shields.io/badge/-fff?style=flat&logo=huggingface&logoColor=205081&label=" alt="Hugging Face Dataset">
+        <span>Demo</span>
+      </a>
+      <a href="https://github.com/Boese0601/ByteMorph" target="_blank" class="badge-link">
+        <img src="https://img.shields.io/badge/-fff?style=flat&logo=github&logoColor=205081&label=" alt="GitHub">
+        <span>Code</span>
+      </a>
+    </div>
+
+    <div class="cmd-teaser">
+      <img src="assets/teaser.png" alt="Teaser Image">
+      <div class="cmd-caption">
+        Our framework enables instruction-guided image editing with complex non-rigid motions, supporting diverse scenarios such as human articulation, object deformation, and viewpoint changes.
+      </div>
+    </div>
+
+    <div class="cmd-section abstract">
+      <h2>Abstract</h2>
+      <p>
+        Editing images with instructions to reflect non-rigid motions—camera viewpoint shifts, object deformations, human articulations, and complex interactions—poses a challenging yet underexplored problem in computer vision.
+        Existing approaches and datasets predominantly focus on static scenes or rigid transformations, limiting their capacity to handle expressive edits involving dynamic motion.
+        To address this gap, we introduce <span class="global-var" data-var="framework"></span>, a comprehensive framework for instruction-based image editing with an emphasis on non-rigid motions.
+        <span class="global-var" data-var="framework"></span> comprises a large-scale dataset, <span class="global-var" data-var="dataset"></span>, and a strong baseline model built upon the Diffusion Transformer (DiT), named <span class="global-var" data-var="model"></span>.
+        <span class="global-var" data-var="dataset"></span> includes over 6 million high-resolution image editing pairs for training, along with a carefully curated evaluation benchmark <span class="global-var" data-var="benchmark"></span>.
+        Both capture a wide variety of non-rigid motion types across diverse environments, human figures, and object categories. The dataset is constructed using motion-guided data generation, layered compositing techniques, and automated captioning to ensure diversity, realism, and semantic coherence.
+        We further conduct a comprehensive evaluation of recent instruction-based image editing methods from both academic and commercial domains. The benchmark is available <a href="https://huggingface.co/datasets/Boese0601/SeedMorph-Bench-Test" target="_blank">here</a>.
+      </p>
+    </div>
+
+    <div class="cmd-section">
+      <h2>Main Contributions</h2>
+      <ul>
+        <li>We introduce <span class="global-var" data-var="framework"></span>, a unified framework for expressive and instruction-based image editing encompassing non-rigid motions.</li>
+        <li>We present <span class="global-var" data-var="dataset"></span> and <span class="global-var" data-var="benchmark"></span>, a large-scale dataset and a comprehensive benchmark, with high-quality image pairs for training and evaluation, addressing various dynamic editing scenarios, including camera motion, object transformation, human articulation, and human-object interaction.</li>
+        <li>With the proposed dataset, we finetune <span class="global-var" data-var="model"></span>, a DiT-based model specifically developed for instruction-guided, motion-centric image editing, setting a baseline for performance on non-rigid motion editing tasks.</li>
+      </ul>
+    </div>
+
+    <div class="cmd-section">
+        <h2>ByteMorph Dataset Construction</h2>
+        Our methodology leverages video generation models to produce
+        natural and coherent transitions between source and target images, ensuring edits are both realistic
+        and motion-consistent.
+        <img src="assets/data_construction_pipeline.png" alt="ByteMorph Dataset Construction">
+        <p class="cmd-caption">
+            Overview of Synthetic Data Construction. Given a source frame extracted from the real video, our pipeline proceeds in three steps. a) A Vision-Language Model (VLM) creates a Motion Caption from the instruction template database to animate the given frame. b) This caption guides a video generation model Seaweed to create a natural transformation. c) We sampled frames uniformly from the generated dynamic videos with a fixed interval and treated each pair of neighbouring frames as an image editing pair. We re-captioned the editing instruction by the same VLM, as well as the general description of each sampled frame (not shown in the figure).
+        </p>
+    </div>
+
+    <div class="cmd-section">
+      <h2>Benchmarking Results</h2>
+      <p style="text-align: justify;">
+        We run each method four times and report the average value. In addition to CLIP similarity metrics, we use Claude-3.7-Sonnet to evaluate the overall editing quality (VLM-Score). We also ask human participants to evaluate the instruction-following quality (Human-Eval-FL) and identity-preserving quality (Human-Eval-ID).
+      </p>
+      <details class="cmd-subsection" style="margin-bottom:1.5em;">
+        <summary style="font-size:1.08em;font-weight:600;color:#205081;cursor:pointer;">Benchmarking Open-Sourced Models</summary>
+        <div style="overflow-x:auto;">
+        <table>
+          <tr>
+            <th>Category</th>
+            <th>Method</th>
+            <th>CLIP-SIM<sub>txt</sub>↑</th>
+            <th>CLIP-D<sub>txt</sub>↑</th>
+            <th>CLIP-SIM<sub>img</sub>↑</th>
+            <th>CLIP-D<sub>img</sub>↑</th>
+            <th>VLM-Eval↑</th>
+          </tr>
+          <!-- Camera Zoom -->
+          <tr><td rowspan="10" style="vertical-align:middle;font-weight:600;">Camera Zoom</td><td>InstructPix2Pix</td><td>0.270</td><td>0.021</td><td>0.737</td><td>0.266</td><td>42.37</td></tr>
+          <tr><td><b>MagicBrush</b></td><td><b>0.311</b></td><td>0.002</td><td><u>0.907</u></td><td>0.202</td><td>49.37</td></tr>
+          <tr><td>UltraEdit (SD3)</td><td>0.299</td><td>0.000</td><td>0.864</td><td>0.249</td><td>54.74</td></tr>
+          <tr><td>AnySD</td><td>0.309</td><td>0.001</td><td><b>0.911</b></td><td>0.182</td><td>40.92</td></tr>
+          <tr><td>InstrcutMove</td><td>0.283</td><td>0.027</td><td>0.821</td><td>0.294</td><td>70.66</td></tr>
+          <tr><td>OminiControl</td><td>0.251</td><td>0.022</td><td>0.722</td><td>0.300</td><td>45.79</td></tr>
+          <tr><td>†InstrcutMove</td><td>0.301</td><td><u>0.045</u></td><td>0.846</td><td><u>0.425</u></td><td><u>82.29</u></td></tr>
+          <tr><td>†OminiControl</td><td><u>0.310</u></td><td>0.039</td><td>0.801</td><td>0.414</td><td>74.15</td></tr>
+          <tr><td><b>†ByteMorpher (Ours)</b></td><td>0.301</td><td><b>0.048</b></td><td>0.847</td><td><b>0.463</b></td><td><b>84.08</b></td></tr>
+          <tr><td><i>GT</i></td><td>0.317</td><td>0.075</td><td>0.890</td><td>1.000</td><td>87.11</td></tr>
+          <!-- Camera Move -->
+          <tr><td rowspan="10" style="vertical-align:middle;font-weight:600;">Camera Move</td><td><u>InstructPix2Pix</u></td><td><u>0.318</u></td><td>0.010</td><td>0.709</td><td>0.200</td><td>32.20</td></tr>
+          <tr><td>MagicBrush</td><td>0.317</td><td>0.009</td><td><b>0.913</b></td><td>0.195</td><td>52.63</td></tr>
+          <tr><td>UltraEdit (SD3)</td><td>0.306</td><td>0.012</td><td>0.885</td><td>0.240</td><td>59.01</td></tr>
+          <tr><td>AnySD</td><td>0.318</td><td>0.010</td><td><u>0.909</u></td><td>0.200</td><td>49.37</td></tr>
+          <tr><td>InstrcutMove</td><td>0.305</td><td>0.016</td><td>0.862</td><td>0.291</td><td>74.86</td></tr>
+          <tr><td>OminiControl</td><td>0.243</td><td>0.022</td><td>0.687</td><td>0.243</td><td>16.71</td></tr>
+          <tr><td>†InstrcutMove</td><td>0.304</td><td><u>0.027</u></td><td>0.883</td><td><u>0.412</u></td><td><u>82.53</u></td></tr>
+          <tr><td>†OminiControl</td><td>0.298</td><td>0.025</td><td>0.891</td><td>0.304</td><td>79.26</td></tr>
+          <tr><td><b>†ByteMorpher (Ours)</b></td><td><b>0.319</b></td><td><b>0.041</b></td><td>0.894</td><td><b>0.426</b></td><td><b>84.18</b></td></tr>
+          <tr><td><i>GT</i></td><td>0.320</td><td>0.039</td><td>0.915</td><td>1.000</td><td>86.37</td></tr>
+          <!-- Object Motion -->
+          <tr><td rowspan="10" style="vertical-align:middle;font-weight:600;">Object Motion</td><td>InstructPix2Pix</td><td>0.299</td><td>0.026</td><td>0.789</td><td>0.257</td><td>36.47</td></tr>
+          <tr><td>MagicBrush</td><td>0.328</td><td>0.007</td><td><b>0.901</b></td><td>0.163</td><td>47.49</td></tr>
+          <tr><td>UltraEdit (SD3)</td><td>0.324</td><td>0.012</td><td>0.887</td><td>0.237</td><td>62.13</td></tr>
+          <tr><td>AnySD</td><td>0.319</td><td>0.008</td><td>0.879</td><td>0.189</td><td>48.31</td></tr>
+          <tr><td>InstrcutMove</td><td>0.325</td><td>0.015</td><td>0.870</td><td>0.318</td><td>72.44</td></tr>
+          <tr><td>OminiControl</td><td>0.279</td><td>0.023</td><td>0.753</td><td>0.270</td><td>34.11</td></tr>
+          <tr><td>†InstrcutMove</td><td>0.328</td><td><u>0.043</u></td><td>0.891</td><td><b>0.481</b></td><td><u>87.97</u></td></tr>
+          <tr><td>†OminiControl</td><td><u>0.330</u></td><td>0.036</td><td>0.892</td><td>0.470</td><td>86.48</td></tr>
+          <tr><td><b>†ByteMorpher (Ours)</b></td><td><b>0.332</b></td><td><b>0.044</b></td><td><u>0.896</u></td><td><u>0.472</u></td><td><b>89.07</b></td></tr>
+          <tr><td><i>GT</i></td><td>0.335</td><td>0.056</td><td>0.919</td><td>1.000</td><td>89.53</td></tr>
+          <!-- Human Motion -->
+          <tr><td rowspan="10" style="vertical-align:middle;font-weight:600;">Human Motion</td><td>InstructPix2Pix</td><td>0.248</td><td>0.012</td><td>0.694</td><td>0.211</td><td>23.60</td></tr>
+          <tr><td>MagicBrush</td><td><b>0.317</b></td><td>0.001</td><td><b>0.911</b></td><td>0.146</td><td>46.27</td></tr>
+          <tr><td>UltraEdit (SD3)</td><td>0.313</td><td>0.011</td><td>0.900</td><td>0.195</td><td>50.64</td></tr>
+          <tr><td>AnySD</td><td>0.312</td><td>0.003</td><td>0.894</td><td>0.156</td><td>38.12</td></tr>
+          <tr><td>InstrcutMove</td><td>0.308</td><td>0.013</td><td>0.861</td><td>0.278</td><td>69.43</td></tr>
+          <tr><td>OminiControl</td><td>0.230</td><td>0.018</td><td>0.660</td><td>0.229</td><td>25.18</td></tr>
+          <tr><td>†InstrcutMove</td><td>0.314</td><td><b>0.023</b></td><td><u>0.901</u></td><td><b>0.442</b></td><td><u>84.70</u></td></tr>
+          <tr><td>†OminiControl</td><td>0.311</td><td>0.016</td><td>0.880</td><td>0.399</td><td>80.78</td></tr>
+          <tr><td><u>†ByteMorpher (Ours)</u></td><td><u>0.316</u></td><td><u>0.022</u></td><td>0.899</td><td><u>0.440</u></td><td><b>85.66</b></td></tr>
+          <tr><td><i>GT</i></td><td>0.321</td><td>0.031</td><td>0.922</td><td>1.000</td><td>86.10</td></tr>
+          <!-- Interaction -->
+          <tr><td rowspan="10" style="vertical-align:middle;font-weight:600;">Interaction</td><td>InstructPix2Pix</td><td>0.271</td><td>0.020</td><td>0.732</td><td>0.263</td><td>31.29</td></tr>
+          <tr><td>MagicBrush</td><td><u>0.317</u></td><td>0.004</td><td><b>0.914</b></td><td>0.167</td><td>39.98</td></tr>
+          <tr><td>UltraEdit (SD3)</td><td>0.314</td><td>0.018</td><td>0.892</td><td>0.226</td><td>52.24</td></tr>
+          <tr><td>AnySD</td><td>0.315</td><td>0.005</td><td><u>0.909</u></td><td>0.173</td><td>37.23</td></tr>
+          <tr><td>InstrcutMove</td><td>0.309</td><td>0.019</td><td>0.855</td><td>0.318</td><td>67.07</td></tr>
+          <tr><td>OminiControl</td><td>0.258</td><td>0.021</td><td>0.689</td><td>0.265</td><td>32.99</td></tr>
+          <tr><td>†InstrcutMove</td><td>0.314</td><td><u>0.043</u></td><td>0.885</td><td><u>0.477</u></td><td><u>85.83</u></td></tr>
+          <tr><td>†OminiControl</td><td>0.295</td><td>0.041</td><td>0.768</td><td>0.433</td><td>78.90</td></tr>
+          <tr><td><b>†ByteMorpher (Ours)</b></td><td><b>0.320</b></td><td><b>0.045</b></td><td>0.884</td><td><b>0.483</b></td><td><b>86.61</b></td></tr>
+          <tr><td><i>GT</i></td><td>0.324</td><td>0.046</td><td>0.905</td><td>1.000</td><td>88.84</td></tr>
+        </table>
+        <p class="cmd-caption">
+          Quantitative evaluation of open-sourced methods on ByteMorph-Bench. † indicates the method is trained on ByteMorph-6M. Best results are in <b>bold</b>, second best are <u>underlined</u>.
+        </p>
+        </div>
+      </details>
+
+      <div class="cmd-subsection">
+        <h3>Benchmarking Industrial Models: Camera Zoom</h3>
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>CLIP-SIM<sub>txt</sub>↑</th>
+            <th>CLIP-D<sub>txt</sub>↑</th>
+            <th>CLIP-SIM<sub>img</sub>↑</th>
+            <th>CLIP-D<sub>img</sub>↑</th>
+            <th>VLM-Eval↑</th>
+            <th>Human-Eval-FL↑</th>
+            <th>Human-Eval-ID↑</th>
+          </tr>
+          <tr>
+            <td>Step1X-Edit</td>
+            <td>0.310</td>
+            <td>0.025</td>
+            <td><b>0.943</b></td>
+            <td>0.258</td>
+            <td>59.34</td>
+            <td>26.60</td>
+            <td>48.86</td>
+          </tr>
+          <tr>
+            <td>HiDream-E1-FULL</td>
+            <td>0.304</td>
+            <td>0.027</td>
+            <td>0.682</td>
+            <td>0.287</td>
+            <td>41.18</td>
+            <td>33.00</td>
+            <td>16.50</td>
+          </tr>
+          <tr>
+            <td>Imagen-3-capability</td>
+            <td>0.293</td>
+            <td>0.025</td>
+            <td>0.846</td>
+            <td>0.264</td>
+            <td>53.94</td>
+            <td><u>61.34</u></td>
+            <td>41.38</td>
+          </tr>
+          <tr>
+            <td>Gemini-2.0-flash-image</td>
+            <td>0.305</td>
+            <td><u>0.031</u></td>
+            <td><u>0.862</u></td>
+            <td>0.297</td>
+            <td>72.27</td>
+            <td>61.04</td>
+            <td>63.09</td>
+          </tr>
+          <tr>
+            <td>SeedEdit 1.6</td>
+            <td><u>0.311</u></td>
+            <td>0.029</td>
+            <td>0.827</td>
+            <td>0.325</td>
+            <td>75.00</td>
+            <td><u>61.34</u></td>
+            <td><b>83.60</b></td>
+          </tr>
+          <tr>
+            <td>GPT-4o-image</td>
+            <td><b>0.317</b></td>
+            <td>0.015</td>
+            <td>0.832</td>
+            <td><u>0.337</u></td>
+            <td><b>88.14</b></td>
+            <td><b>89.36</b></td>
+            <td>61.09</td>
+          </tr>
+          <tr>
+            <td><b>ByteMorpher (Ours)</b></td>
+            <td>0.301</td>
+            <td><b>0.048</b></td>
+            <td>0.847</td>
+            <td><b>0.463</b></td>
+            <td><u>84.08</u></td>
+            <td>61.13</td>
+            <td><u>74.73</u></td>
+          </tr>
+          <tr>
+            <td><i>GT</i></td>
+            <td>0.317</td>
+            <td>0.075</td>
+            <td>0.890</td>
+            <td>1.000</td>
+            <td>87.11</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </table>
+        <p class="cmd-caption">
+          Quantitative results for Camera Zoom. Best results are in <b>bold</b>, second best are <u>underlined</u>.
+        </p>
+      </div>
+
+      <div class="cmd-subsection">
+        <h3>Benchmarking Industrial Models: Camera Move</h3>
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>CLIP-SIM<sub>txt</sub>↑</th>
+            <th>CLIP-D<sub>txt</sub>↑</th>
+            <th>CLIP-SIM<sub>img</sub>↑</th>
+            <th>CLIP-D<sub>img</sub>↑</th>
+            <th>VLM-Eval↑</th>
+            <th>Human-Eval-FL↑</th>
+            <th>Human-Eval-ID↑</th>
+          </tr>
+          <tr>
+            <td>Step1X-Edit</td>
+            <td>0.315</td>
+            <td>0.008</td>
+            <td><b>0.946</b></td>
+            <td>0.208</td>
+            <td>57.96</td>
+            <td>33.50</td>
+            <td>63.39</td>
+          </tr>
+          <tr>
+            <td>HiDream-E1-FULL</td>
+            <td>0.309</td>
+            <td><u>0.029</u></td>
+            <td>0.712</td>
+            <td>0.252</td>
+            <td>32.76</td>
+            <td>16.50</td>
+            <td>18.22</td>
+          </tr>
+          <tr>
+            <td>Imagen-3-capability</td>
+            <td>0.282</td>
+            <td>0.010</td>
+            <td>0.813</td>
+            <td>0.238</td>
+            <td>47.22</td>
+            <td>17.38</td>
+            <td>26.51</td>
+          </tr>
+          <tr>
+            <td>Gemini-2.0-flash-image</td>
+            <td>0.317</td>
+            <td>0.020</td>
+            <td>0.892</td>
+            <td><u>0.311</u></td>
+            <td>77.96</td>
+            <td>56.60</td>
+            <td><u>75.76</u></td>
+          </tr>
+          <tr>
+            <td>SeedEdit 1.6</td>
+            <td>0.314</td>
+            <td>0.015</td>
+            <td>0.866</td>
+            <td>0.253</td>
+            <td>78.59</td>
+            <td>58.30</td>
+            <td><b>87.78</b></td>
+          </tr>
+          <tr>
+            <td>GPT-4o-image</td>
+            <td><b>0.321</b></td>
+            <td>0.011</td>
+            <td>0.865</td>
+            <td>0.285</td>
+            <td><b>84.57</b></td>
+            <td><b>76.74</b></td>
+            <td>59.14</td>
+          </tr>
+          <tr>
+            <td><b>ByteMorpher (Ours)</b></td>
+            <td><u>0.319</u></td>
+            <td><b>0.041</b></td>
+            <td><u>0.894</u></td>
+            <td><b>0.426</b></td>
+            <td><u>84.18</u></td>
+            <td><u>67.60</u></td>
+            <td>58.25</td>
+          </tr>
+          <tr>
+            <td><i>GT</i></td>
+            <td>0.320</td>
+            <td>0.039</td>
+            <td>0.915</td>
+            <td>1.000</td>
+            <td>86.37</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </table>
+        <p class="cmd-caption">
+          Quantitative results for Camera Move. Best results are in <b>bold</b>, second best are <u>underlined</u>.
+        </p>
+      </div>
+
+      <div class="cmd-subsection">
+        <h3>Benchmarking Industrial Models: Object Motion</h3>
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>CLIP-SIM<sub>txt</sub>↑</th>
+            <th>CLIP-D<sub>txt</sub>↑</th>
+            <th>CLIP-SIM<sub>img</sub>↑</th>
+            <th>CLIP-D<sub>img</sub>↑</th>
+            <th>VLM-Eval↑</th>
+            <th>Human-Eval-FL↑</th>
+            <th>Human-Eval-ID↑</th>
+          </tr>
+          <tr>
+            <td>Step1X-Edit</td>
+            <td>0.323</td>
+            <td>0.019</td>
+            <td><b>0.923</b></td>
+            <td>0.260</td>
+            <td>72.78</td>
+            <td>72.16</td>
+            <td>59.39</td>
+          </tr>
+          <tr>
+            <td>HiDream-E1-FULL</td>
+            <td>0.312</td>
+            <td>0.028</td>
+            <td>0.700</td>
+            <td>0.259</td>
+            <td>35.00</td>
+            <td>44.34</td>
+            <td>49.75</td>
+          </tr>
+          <tr>
+            <td>Imagen-3-capability</td>
+            <td>0.324</td>
+            <td>0.027</td>
+            <td>0.870</td>
+            <td>0.261</td>
+            <td>57.06</td>
+            <td>62.56</td>
+            <td>77.84</td>
+          </tr>
+          <tr>
+            <td>Gemini-2.0-flash-image</td>
+            <td><u>0.333</u></td>
+            <td><u>0.040</u></td>
+            <td>0.892</td>
+            <td>0.341</td>
+            <td>79.08</td>
+            <td><u>74.77</u></td>
+            <td><b>86.62</b></td>
+          </tr>
+          <tr>
+            <td>SeedEdit 1.6</td>
+            <td>0.332</td>
+            <td>0.025</td>
+            <td>0.874</td>
+            <td>0.323</td>
+            <td>80.21</td>
+            <td>66.50</td>
+            <td><u>79.12</u></td>
+          </tr>
+          <tr>
+            <td>GPT-4o-image</td>
+            <td><b>0.339</b></td>
+            <td>0.029</td>
+            <td>0.861</td>
+            <td><u>0.354</u></td>
+            <td><b>90.60</b></td>
+            <td><b>75.19</b></td>
+            <td>49.91</td>
+          </tr>
+          <tr>
+            <td><b>ByteMorpher (Ours)</b></td>
+            <td>0.332</td>
+            <td><b>0.044</b></td>
+            <td><u>0.896</u></td>
+            <td><b>0.472</b></td>
+            <td><u>89.07</u></td>
+            <td>62.16</td>
+            <td>58.25</td>
+          </tr>
+          <tr>
+            <td><i>GT</i></td>
+            <td>0.335</td>
+            <td>0.056</td>
+            <td>0.919</td>
+            <td>1.000</td>
+            <td>89.53</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </table>
+        <p class="cmd-caption">
+          Quantitative results for Object Motion. Best results are in <b>bold</b>, second best are <u>underlined</u>.
+        </p>
+      </div>
+
+      <div class="cmd-subsection">
+        <h3>Benchmarking Industrial Models: Human Motion</h3>
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>CLIP-SIM<sub>txt</sub>↑</th>
+            <th>CLIP-D<sub>txt</sub>↑</th>
+            <th>CLIP-SIM<sub>img</sub>↑</th>
+            <th>CLIP-D<sub>img</sub>↑</th>
+            <th>VLM-Eval↑</th>
+            <th>Human-Eval-FL↑</th>
+            <th>Human-Eval-ID↑</th>
+          </tr>
+          <tr>
+            <td>Step1X-Edit</td>
+            <td>0.315</td>
+            <td>0.017</td>
+            <td><b>0.931</b></td>
+            <td>0.212</td>
+            <td>65.39</td>
+            <td>44.50</td>
+            <td>78.80</td>
+          </tr>
+          <tr>
+            <td>HiDream-E1-FULL</td>
+            <td>0.301</td>
+            <td>0.017</td>
+            <td>0.676</td>
+            <td>0.215</td>
+            <td>33.21</td>
+            <td>12.51</td>
+            <td>38.66</td>
+          </tr>
+          <tr>
+            <td>Imagen-3-capability</td>
+            <td>0.295</td>
+            <td>0.017</td>
+            <td>0.840</td>
+            <td>0.233</td>
+            <td>55.70</td>
+            <td>33.34</td>
+            <td>61.17</td>
+          </tr>
+          <tr>
+            <td>Gemini-2.0-flash-image</td>
+            <td>0.314</td>
+            <td>0.017</td>
+            <td>0.893</td>
+            <td>0.282</td>
+            <td>78.72</td>
+            <td>51.84</td>
+            <td>63.34</td>
+          </tr>
+          <tr>
+            <td>SeedEdit 1.6</td>
+            <td><b>0.324</b></td>
+            <td><b>0.024</b></td>
+            <td>0.878</td>
+            <td>0.274</td>
+            <td>80.62</td>
+            <td>56.23</td>
+            <td><u>72.12</u></td>
+          </tr>
+          <tr>
+            <td>GPT-4o-image</td>
+            <td><u>0.316</u></td>
+            <td>0.021</td>
+            <td>0.850</td>
+            <td><u>0.330</u></td>
+            <td><b>87.93</b></td>
+            <td><b>87.56</b></td>
+            <td>57.84</td>
+          </tr>
+          <tr>
+            <td><b>ByteMorpher (Ours)</b></td>
+            <td><u>0.316</u></td>
+            <td><u>0.022</u></td>
+            <td><u>0.899</u></td>
+            <td><b>0.440</b></td>
+            <td><u>85.66</u></td>
+            <td><u>68.38</u></td>
+            <td><b>75.00</b></td>
+          </tr>
+          <tr>
+            <td><i>GT</i></td>
+            <td>0.321</td>
+            <td>0.031</td>
+            <td>0.922</td>
+            <td>1.000</td>
+            <td>86.10</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </table>
+        <p class="cmd-caption">
+          Quantitative results for Human Motion. Best results are in <b>bold</b>, second best are <u>underlined</u>.
+        </p>
+      </div>
+
+      <div class="cmd-subsection">
+        <h3>Benchmarking Industrial Models: Interaction</h3>
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>CLIP-SIM<sub>txt</sub>↑</th>
+            <th>CLIP-D<sub>txt</sub>↑</th>
+            <th>CLIP-SIM<sub>img</sub>↑</th>
+            <th>CLIP-D<sub>img</sub>↑</th>
+            <th>VLM-Eval↑</th>
+            <th>Human-Eval-FL↑</th>
+            <th>Human-Eval-ID↑</th>
+          </tr>
+          <tr>
+            <td>Step1X-Edit</td>
+            <td>0.312</td>
+            <td>0.020</td>
+            <td><b>0.937</b></td>
+            <td>0.245</td>
+            <td>65.99</td>
+            <td>36.09</td>
+            <td>64.56</td>
+          </tr>
+          <tr>
+            <td>HiDream-E1-FULL</td>
+            <td>0.307</td>
+            <td>0.019</td>
+            <td>0.679</td>
+            <td>0.251</td>
+            <td>35.73</td>
+            <td>10.60</td>
+            <td>38.66</td>
+          </tr>
+          <tr>
+            <td>Imagen-3-capability</td>
+            <td>0.307</td>
+            <td>0.023</td>
+            <td>0.863</td>
+            <td>0.254</td>
+            <td>54.78</td>
+            <td>47.16</td>
+            <td>61.59</td>
+          </tr>
+          <tr>
+            <td>Gemini-2.0-flash-image</td>
+            <td>0.316</td>
+            <td>0.027</td>
+            <td><u>0.889</u></td>
+            <td>0.327</td>
+            <td>76.86</td>
+            <td>60.70</td>
+            <td><u>77.94</u></td>
+          </tr>
+          <tr>
+            <td>SeedEdit 1.6</td>
+            <td>0.326</td>
+            <td><b>0.032</b></td>
+            <td>0.878</td>
+            <td>0.316</td>
+            <td>78.27</td>
+            <td>49.78</td>
+            <td><b>80.10</b></td>
+          </tr>
+          <tr>
+            <td>GPT-4o-image</td>
+            <td><u>0.318</u></td>
+            <td><u>0.031</u></td>
+            <td>0.851</td>
+            <td><u>0.351</u></td>
+            <td><b>88.65</b></td>
+            <td><b>81.17</b></td>
+            <td>73.72</td>
+          </tr>
+          <tr>
+            <td><b>ByteMorpher (Ours)</b></td>
+            <td>0.320</td>
+            <td><b>0.045</b></td>
+            <td>0.884</td>
+            <td><b>0.483</b></td>
+            <td><u>86.61</u></td>
+            <td><u>69.15</u></td>
+            <td>64.73</td>
+          </tr>
+          <tr>
+            <td><i>GT</i></td>
+            <td>0.324</td>
+            <td>0.046</td>
+            <td>0.905</td>
+            <td>1.000</td>
+            <td>88.84</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </table>
+        <p class="cmd-caption">
+          Quantitative results for Interaction. Best results are in <b>bold</b>, second best are <u>underlined</u>.
+        </p>
+      </div>
+
+      <div class="cmd-subsection">
+        <h3>Benchmarking Industrial Models: Qualitative Comparison</h3>
+        <!-- <img src="assets/benchmark_results.png" alt="Benchmarking Results"> -->
+        <!-- bulmaCarousel 4.x carousel starts -->
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="carousel-item">
+              <img src="assets/carousel/1.jpg" alt="1">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/carousel/2.jpg" alt="2">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/carousel/3.jpg" alt="3">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/carousel/4.jpg" alt="4">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/carousel/5.jpg" alt="5">
+            </div>
+          </div>
+        </div>
+        <!-- bulmaCarousel 4.x carousel ends -->
+        <p class="cmd-caption">
+          Qualitative comparison of industrial instruction-guided image editing models on the ByteMorph-Bench benchmark. Our method achieves superior performance across various non-rigid motion scenarios.
+        </p>
+      </div>
+
+      <div class="cmd-subsection">
+        <h3>Ablation Study</h3>
+        <p style="text-align: justify;">
+            We fine-tune OminiControl and InstructMove on our training set. Both models exhibit notable gains across key metrics after fine-tuning. The following qualitative results demonstrate that InstructMove trained on our dataset achieve substantially better instruction-following ability, particularly for non-rigid motion edits.
+        </p>
+        <img src="assets/ablation.png" alt="Ablation Study">
+      </div>
+    </div>
+
+    <div class="cmd-section">
+      <h2>Bibtex</h2>
+      <pre>
+Comming soon...
+      </pre>
+    </div>
+
+    <!-- <div class="cmd-section">
+      <h2>Contact</h2>
+      <p>If you have any questions, please feel free to contact <a href="mailto:">Di Chang</a>.</p>
+    </div> -->
+    <div class="cmd-section">
+      <h2>License</h2>
+      <p>Our dataset ByteMorph-6M and evaluation benchmark ByteMorph-Bench are released under <a href="https://huggingface.co/datasets/Boese0601/ByteMorph-6M-Demo/blob/main/LICENSE.txt">CC0-1.0 Creative Commons Zero v1.0 Universal License</a>. The baseline model ByteMorpher, including code and weights, is released under <a href="https://github.com/Boese0601/ByteMorph/blob/main/LICENSE.txt">FLUX.1-dev Non-Commercial License</a>.</p>
+    </div>
+
+    <div class="cmd-section">
+      <h2>Disclaimer</h2>
+      <p>Your access to and use of this dataset are at your own risk. We do not guarantee the accuracy of this dataset. The dataset is provided “as is” and we make no warranty or representation to you with respect to it and we expressly disclaim, and hereby expressly waive, all warranties, express, implied, statutory or otherwise. This includes, without limitation, warranties of quality, performance, merchantability or fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. In no event will we be liable to you on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this public license or use of the licensed material.The disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.</p>
+    </div>
+  </div>
+
+  <script src="js/globals.js"></script>
+  <script src="js/bulma-carousel.min.js"></script>
+  <!-- <script src="js/jquery.min.js"></script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.global-var').forEach(function(el) {
+        const key = el.getAttribute('data-var');
+        if (window.GLOBALS && window.GLOBALS[key]) {
+          el.textContent = window.GLOBALS[key];
+        }
+      });
+      var carousels = bulmaCarousel.attach('.carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        autoplay: true,
+        autoplaySpeed: 2500,
+      });
+      for(var i = 0; i < carousels.length; i++) {
+        // Add listener to  event
+        carousels[i].on('before:show', state => {
+          console.log(state);
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
