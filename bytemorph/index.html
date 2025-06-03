@@ -67,6 +67,10 @@
         <img src="https://img.shields.io/badge/-fff?style=flat&logo=github&logoColor=205081&label=" alt="GitHub">
         <span>Code</span>
       </a>
+      <a href="#leaderboard" target="_blank" class="badge-link">
+        <img src="https://img.shields.io/badge/🏆%20-fff?style=flat&label=" alt="Leaderboard">
+        <span>Leaderboard</span>
+      </a>
     </div>
 
     <div class="cmd-teaser">
@@ -109,8 +113,8 @@
         </p>
     </div>
 
-    <div class="cmd-section">
-      <h2>Benchmarking Results</h2>
+    <div class="cmd-section" id="leaderboard">
+      <h2>Leaderboard</h2>
       <p style="text-align: justify;">
         We run each method four times and report the average value. In addition to CLIP similarity metrics, we use Claude-3.7-Sonnet to evaluate the overall editing quality (VLM-Score). We also ask human participants to evaluate the instruction-following quality (Human-Eval-FL) and identity-preserving quality (Human-Eval-ID).
       </p>
@@ -190,9 +194,10 @@
       </details>
 
       <div class="cmd-subsection">
-        <h3>Benchmarking Industrial Models: Camera Zoom</h3>
+        <h3>Benchmarking Industrial Models - Editing Category: Camera Zoom</h3>
         <table>
           <tr>
+            <th>Organization</th>
             <th>Method</th>
             <th>CLIP-SIM<sub>txt</sub>↑</th>
             <th>CLIP-D<sub>txt</sub>↑</th>
@@ -203,6 +208,7 @@
             <th>Human-Eval-ID↑</th>
           </tr>
           <tr>
+            <td>StepFun AI</td>
             <td>Step1X-Edit</td>
             <td>0.310</td>
             <td>0.025</td>
@@ -213,6 +219,7 @@
             <td>48.86</td>
           </tr>
           <tr>
+            <td>HiDream.ai</td>
             <td>HiDream-E1-FULL</td>
             <td>0.304</td>
             <td>0.027</td>
@@ -223,6 +230,7 @@
             <td>16.50</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Imagen-3-capability</td>
             <td>0.293</td>
             <td>0.025</td>
@@ -233,6 +241,7 @@
             <td>41.38</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Gemini-2.0-flash-image</td>
             <td>0.305</td>
             <td>0.031</td>
@@ -243,6 +252,7 @@
             <td>63.09</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>SeedEdit 1.6</td>
             <td><u>0.311</u></td>
             <td>0.029</td>
@@ -253,16 +263,18 @@
             <td><b>83.60</b></td>
           </tr>
           <tr>
+            <td>OpenAI</td>
             <td>GPT-4o-image</td>
             <td><b>0.317</b></td>
             <td>0.015</td>
             <td>0.832</td>
             <td>0.337</td>
-            <td><b>88.14</b></td>
+            <td><u>88.14</u></td>
             <td><b>89.36</b></td>
             <td>61.09</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>BAGEL</td>
             <td>0.300</td>
             <td>0.031</td>
@@ -273,6 +285,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-pro</td>
             <td>0.312</td>
             <td>0.024</td>
@@ -283,6 +296,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-max</td>
             <td>0.307</td>
             <td><u>0.032</u></td>
@@ -293,16 +307,29 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
+            <td>SeedEdit 3.0</td>
+            <td>0.296</td>
+            <td>0.027</td>
+            <td>0.833</td>
+            <td>0.370</td>
+            <td><b>88.25</b></td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>ByteDance</td>
             <td><b>ByteMorpher (Ours)</b></td>
             <td>0.301</td>
             <td><b>0.048</b></td>
             <td>0.847</td>
             <td><b>0.463</b></td>
-            <td><u>84.08</u></td>
+            <td>84.08</td>
             <td>61.13</td>
             <td><u>74.73</u></td>
           </tr>
           <tr>
+            <td>-</td>
             <td><i>GT</i></td>
             <td>0.317</td>
             <td>0.075</td>
@@ -319,9 +346,10 @@
       </div>
 
       <div class="cmd-subsection">
-        <h3>Benchmarking Industrial Models: Camera Move</h3>
+        <h3>Benchmarking Industrial Models - Editing Category: Camera Move</h3>
         <table>
           <tr>
+            <th>Organization</th>
             <th>Method</th>
             <th>CLIP-SIM<sub>txt</sub>↑</th>
             <th>CLIP-D<sub>txt</sub>↑</th>
@@ -332,6 +360,7 @@
             <th>Human-Eval-ID↑</th>
           </tr>
           <tr>
+            <td>StepFun AI</td>
             <td>Step1X-Edit</td>
             <td>0.315</td>
             <td>0.008</td>
@@ -342,6 +371,7 @@
             <td>63.39</td>
           </tr>
           <tr>
+            <td>HiDream.ai</td>
             <td>HiDream-E1-FULL</td>
             <td>0.309</td>
             <td><u>0.029</u></td>
@@ -352,6 +382,7 @@
             <td>18.22</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Imagen-3-capability</td>
             <td>0.282</td>
             <td>0.010</td>
@@ -362,6 +393,7 @@
             <td>26.51</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Gemini-2.0-flash-image</td>
             <td>0.317</td>
             <td>0.020</td>
@@ -372,6 +404,7 @@
             <td><u>75.76</u></td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>SeedEdit 1.6</td>
             <td>0.314</td>
             <td>0.015</td>
@@ -382,6 +415,7 @@
             <td><b>87.78</b></td>
           </tr>
           <tr>
+            <td>OpenAI</td>
             <td>GPT-4o-image</td>
             <td><b>0.321</b></td>
             <td>0.011</td>
@@ -392,6 +426,7 @@
             <td>59.14</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>BAGEL</td>
             <td>0.306</td>
             <td>0.026</td>
@@ -402,6 +437,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-pro</td>
             <td>0.312</td>
             <td>0.016</td>
@@ -412,6 +448,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-max</td>
             <td>0.315</td>
             <td>0.019</td>
@@ -422,6 +459,18 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
+            <td>SeedEdit 3.0</td>
+            <td>0.308</td>
+            <td>0.020</td>
+            <td>0.887</td>
+            <td>0.278</td>
+            <td>78.00</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>ByteDance</td>
             <td><b>ByteMorpher (Ours)</b></td>
             <td><u>0.319</u></td>
             <td><b>0.041</b></td>
@@ -432,6 +481,7 @@
             <td>58.25</td>
           </tr>
           <tr>
+            <td>-</td>
             <td><i>GT</i></td>
             <td>0.320</td>
             <td>0.039</td>
@@ -448,9 +498,10 @@
       </div>
 
       <div class="cmd-subsection">
-        <h3>Benchmarking Industrial Models: Object Motion</h3>
+        <h3>Benchmarking Industrial Models - Editing Category: Object Motion</h3>
         <table>
           <tr>
+            <th>Organization</th>
             <th>Method</th>
             <th>CLIP-SIM<sub>txt</sub>↑</th>
             <th>CLIP-D<sub>txt</sub>↑</th>
@@ -461,6 +512,7 @@
             <th>Human-Eval-ID↑</th>
           </tr>
           <tr>
+            <td>StepFun AI</td>
             <td>Step1X-Edit</td>
             <td>0.323</td>
             <td>0.019</td>
@@ -471,6 +523,7 @@
             <td>59.39</td>
           </tr>
           <tr>
+            <td>HiDream.ai</td>
             <td>HiDream-E1-FULL</td>
             <td>0.312</td>
             <td>0.028</td>
@@ -481,6 +534,7 @@
             <td>49.75</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Imagen-3-capability</td>
             <td>0.324</td>
             <td>0.027</td>
@@ -491,6 +545,7 @@
             <td>77.84</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Gemini-2.0-flash-image</td>
             <td><u>0.333</u></td>
             <td><u>0.040</u></td>
@@ -501,6 +556,7 @@
             <td><b>86.62</b></td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>SeedEdit 1.6</td>
             <td>0.332</td>
             <td>0.025</td>
@@ -511,6 +567,7 @@
             <td><u>79.12</u></td>
           </tr>
           <tr>
+            <td>OpenAI</td>
             <td>GPT-4o-image</td>
             <td><b>0.339</b></td>
             <td>0.029</td>
@@ -521,6 +578,7 @@
             <td>49.91</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>BAGEL</td>
             <td>0.324</td>
             <td>0.036</td>
@@ -531,6 +589,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-pro</td>
             <td>0.321</td>
             <td>0.018</td>
@@ -541,6 +600,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-max</td>
             <td>0.325</td>
             <td>0.025</td>
@@ -551,6 +611,18 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
+            <td>SeedEdit 3.0</td>
+            <td>0.321</td>
+            <td>0.036</td>
+            <td>0.905</td>
+            <td>0.344</td>
+            <td>88.11</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>ByteDance</td>
             <td><b>ByteMorpher (Ours)</b></td>
             <td>0.332</td>
             <td><b>0.044</b></td>
@@ -561,6 +633,7 @@
             <td>58.25</td>
           </tr>
           <tr>
+            <td>-</td>
             <td><i>GT</i></td>
             <td>0.335</td>
             <td>0.056</td>
@@ -577,9 +650,10 @@
       </div>
 
       <div class="cmd-subsection">
-        <h3>Benchmarking Industrial Models: Human Motion</h3>
+        <h3>Benchmarking Industrial Models - Editing Category: Human Motion</h3>
         <table>
           <tr>
+            <th>Organization</th>
             <th>Method</th>
             <th>CLIP-SIM<sub>txt</sub>↑</th>
             <th>CLIP-D<sub>txt</sub>↑</th>
@@ -590,6 +664,7 @@
             <th>Human-Eval-ID↑</th>
           </tr>
           <tr>
+            <td>StepFun AI</td>
             <td>Step1X-Edit</td>
             <td>0.315</td>
             <td>0.017</td>
@@ -600,6 +675,7 @@
             <td>78.80</td>
           </tr>
           <tr>
+            <td>HiDream.ai</td>
             <td>HiDream-E1-FULL</td>
             <td>0.301</td>
             <td>0.017</td>
@@ -610,6 +686,7 @@
             <td>38.66</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Imagen-3-capability</td>
             <td>0.295</td>
             <td>0.017</td>
@@ -620,6 +697,7 @@
             <td>61.17</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Gemini-2.0-flash-image</td>
             <td>0.314</td>
             <td>0.017</td>
@@ -630,9 +708,10 @@
             <td>63.34</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>SeedEdit 1.6</td>
             <td><b>0.324</b></td>
-            <td><b>0.024</b></td>
+            <td><u>0.024</u></td>
             <td>0.878</td>
             <td>0.274</td>
             <td>80.62</td>
@@ -640,16 +719,18 @@
             <td><u>72.12</u></td>
           </tr>
           <tr>
+            <td>OpenAI</td>
             <td>GPT-4o-image</td>
             <td><u>0.316</u></td>
             <td>0.021</td>
             <td>0.850</td>
-            <td><u>0.330</u></td>
-            <td><b>87.93</b></td>
+            <td>0.330</td>
+            <td><u>87.93</u></td>
             <td><b>87.56</b></td>
             <td>57.84</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>BAGEL</td>
             <td>0.312</td>
             <td>0.021</td>
@@ -660,6 +741,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-pro</td>
             <td>0.314</td>
             <td>0.017</td>
@@ -670,6 +752,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-max</td>
             <td><u>0.316</u></td>
             <td>0.016</td>
@@ -680,16 +763,29 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
+            <td>SeedEdit 3.0</td>
+            <td>0.313</td>
+            <td><b>0.025</b></td>
+            <td>0.903</td>
+            <td><u>0.343</u></td>
+            <td><b>88.13</b></td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>ByteDance</td>
             <td><b>ByteMorpher (Ours)</b></td>
             <td><u>0.316</u></td>
-            <td><u>0.022</u></td>
+            <td>0.022</td>
             <td>0.899</td>
             <td><b>0.440</b></td>
-            <td><u>85.66</u></td>
+            <td>85.66</td>
             <td><u>68.38</u></td>
             <td><b>75.00</b></td>
           </tr>
           <tr>
+            <td>-</td>
             <td><i>GT</i></td>
             <td>0.321</td>
             <td>0.031</td>
@@ -706,9 +802,10 @@
       </div>
 
       <div class="cmd-subsection">
-        <h3>Benchmarking Industrial Models: Interaction</h3>
+        <h3>Benchmarking Industrial Models - Editing Category: Interaction</h3>
         <table>
           <tr>
+            <th>Organization</th>
             <th>Method</th>
             <th>CLIP-SIM<sub>txt</sub>↑</th>
             <th>CLIP-D<sub>txt</sub>↑</th>
@@ -719,6 +816,7 @@
             <th>Human-Eval-ID↑</th>
           </tr>
           <tr>
+            <td>StepFun AI</td>
             <td>Step1X-Edit</td>
             <td>0.312</td>
             <td>0.020</td>
@@ -729,6 +827,7 @@
             <td>64.56</td>
           </tr>
           <tr>
+            <td>HiDream.ai</td>
             <td>HiDream-E1-FULL</td>
             <td>0.307</td>
             <td>0.019</td>
@@ -739,6 +838,7 @@
             <td>38.66</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Imagen-3-capability</td>
             <td>0.307</td>
             <td>0.023</td>
@@ -749,6 +849,7 @@
             <td>61.59</td>
           </tr>
           <tr>
+            <td>Google</td>
             <td>Gemini-2.0-flash-image</td>
             <td>0.316</td>
             <td>0.027</td>
@@ -759,6 +860,7 @@
             <td><u>77.94</u></td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>SeedEdit 1.6</td>
             <td><b>0.326</b></td>
             <td>0.032</td>
@@ -769,16 +871,18 @@
             <td><b>80.10</b></td>
           </tr>
           <tr>
+            <td>OpenAI</td>
             <td>GPT-4o-image</td>
             <td>0.318</td>
             <td>0.031</td>
             <td>0.851</td>
-            <td><u>0.351</u></td>
+            <td>0.351</td>
             <td><b>88.65</b></td>
             <td><b>81.17</b></td>
             <td>73.72</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
             <td>BAGEL</td>
             <td>0.312</td>
             <td><u>0.037</u></td>
@@ -789,6 +893,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-pro</td>
             <td>0.313</td>
             <td>0.028</td>
@@ -799,6 +904,7 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>Black Forest Labs</td>
             <td>Flux-Kontext-max</td>
             <td><u>0.320</u></td>
             <td>0.032</td>
@@ -809,8 +915,20 @@
             <td>-</td>
           </tr>
           <tr>
+            <td>ByteDance</td>
+            <td>SeedEdit 3.0</td>
+            <td>0.312</td>
+            <td>0.036</td>
+            <td>0.894</td>
+            <td><u>0.371</u></td>
+            <td>86.07</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>ByteDance</td>
             <td><b>ByteMorpher (Ours)</b></td>
-            <td>0.320</td>
+            <td><u>0.320</u></td>
             <td><b>0.045</b></td>
             <td>0.884</td>
             <td><b>0.483</b></td>
@@ -819,6 +937,7 @@
             <td>64.73</td>
           </tr>
           <tr>
+            <td>-</td>
             <td><i>GT</i></td>
             <td>0.324</td>
             <td>0.046</td>
