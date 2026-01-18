@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="HairWeaver">
+  <meta property="og:title" content="HairWeaver"/>
+  <meta property="og:description" content="HairWeaver: Few-Shot Photorealistic Hair Motion Synthesis with Sim-to-Real Guided Video Diffusion"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/hair_emoji.png" />
+  <meta property="og:image:width" content="2412"/>
+  <meta property="og:image:height" content="1394"/>
+
+
+  <meta name="twitter:title" content="HairWeaver">
+  <meta name="twitter:description" content="HairWeaver: Few-Shot Photorealistic Hair Motion Synthesis with Sim-to-Real Guided Video Diffusion">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/hair_emoji.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Image-to-Video">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>HairWeaver</title>
+  <link rel="icon" href="./static/images/tiktok.svg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              HairWeaver<img src="static/images/hair_emoji.png" alt="hair emoji" style="height: 1em; vertical-align: middle; margin: 0 0.2em;">: Few-Shot Photorealistic Hair Motion Synthesis with Sim-to-Real Guided Video Diffusion
+            </h1>
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://boese0601.github.io/">Di Chang</a><sup>1,2</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://sekunde.github.io/">Ji Hou</a><sup>1</sup>&nbsp;&nbsp;</span> 
+            <span class="author-block">
+                <a href="https://aljazbozic.github.io/">Aljaz Bozic</a><sup>1</sup>&nbsp;&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://il.linkedin.com/in/assaf-neuberger-0924a223">Assaf Neuberger</a><sup>1</sup>&nbsp;&nbsp;
+              </span>
+                          <span class="author-block">
+                <a href="https://xujuefei.com/">Felix Juefei-Xu</a><sup>1</sup>&nbsp;&nbsp;
+              </span>
+                          <span class="author-block">
+                <a href="https://www.imdb.com/name/nm1436524/">Olivier Maury</a><sup>1</sup>&nbsp;&nbsp;
+              </span>
+                          <span class="author-block">
+                <a href="">Gene Wei-Chin Lin</a><sup>1</sup>&nbsp;&nbsp;
+              </span>
+                          <span class="author-block">
+                <a href="https://tuurstuyck.github.io/">Tuur Stuyck</a><sup>1</sup>&nbsp;&nbsp;
+              </span>
+                                        <span class="author-block">
+                <a href="https://www.linkedin.com/in/doug-roble-752a081">Doug Roble</a><sup>1</sup>&nbsp;&nbsp;
+              </span>
+            <span class="author-block">
+              <a href="https://www.ihp-lab.org/">Mohammad Soleymani</a><sup>2</sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/stephanegrabli">Stephane Grabli</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Meta</span> &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>University of Southern California</span>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=VPJe6TyrT-Y"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/sorted_videos_compressed/001.mp4"
+        type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present HairWeaver, a diffusion-based pipeline that animates a single human image with realistic and expressive hair dynamics. While existing methods successfully control body pose, they lack specific control for hair and, as a result, typically fail to capture the intricate hair motions, resulting in stiff and unrealistic animations. HairWeaver overcomes this limitation using two specialized modules: a Motion-Context-LoRA to integrate motion conditions and a Sim2Real-Domain-LoRA to preserve the subject's photoreal appearance across different data domains. These lightweight components are designed to guide a video diffusion backbone while maintaining its core generative capabilities. By training on a specialized dataset of dynamic human motion generated from CG simulator, HairWeaver affords fine control over hair motion and ultimately learns to produce highly realistic hair that responds naturally to movement. Comprehensive evaluations demonstrate that our approach sets a new state of the art, producing lifelike human hair animations with unprecedented dynamic details.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Method</h2>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="./static/images/pipeline.png" alt="MY ALT TEXT"/>
+        <h2 class="content has-text-justified">
+          Figure 2. Overview of HairWeaver pipeline. a) We use CG simulator to generate data samples, which contains videos with motions Vgt,
+static reference image, pose condition, and hair condition . b) During training stage 1, we leverage
+the a diffusion transformer (DiT) architecture as the backbone model and pre-train the Sim2Real-Domain-LoRA. This training process
+is conducted in Image-to-Video manner with reference image and text prompt as input. c) During training stage 2, we freeze the Sim2Real-Domain-
+LoRA and finetune the Motion-Context-LoRA with pose condition and hair condition as additional guidance. d) During inference, the
+Sim2Real-Domain-LoRA is discarded and the trained model generates photorealistic human videos with hair and body motions with
+photorealistic reference and CG pose & hair conditions as input. e) Details of the Model Architecture presented in c). The Pose Encoder
+integrates the body motions as a trainable residual to the noisy latent. The hair motions are encoded as additional attention context to the
+DiT blocks by a frozen VAE-Encoder. The only trainable modules are the Pose Encoder and the Motion-Context-LoRA.
+       </h2>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Results</h2>
+      <h2 class="title is-4 has-text-centered">Comparison to Previous Works</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/015.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/016.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/017.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/001.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/002.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/003.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/005.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/006.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/007.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/008.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/009.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/010.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/011.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/012.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/013.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/019.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/020.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/021.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/022.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/023.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="hero-body">
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="static/sorted_videos_compressed/024.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4 has-text-centered">Photorealistic Video Animation</h2>
+        <div class="is-size-4 publication-authors">
+              <!-- Paper authors -->
+                <span class="author-block">
+                <br>
+                CG: Source Video from Simulator to provide Conditions. 
+                <br>
+                Generation: Photorealistic Generation by HairWeaver.
+                <br>
+                w/Conditions: Photorealistic Generation and Corresponding Conditions.
+          </div>
+       
+      <div id="results-carousel33" class="carousel results-carousel">
+
+
+                <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id12999.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id12819.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id12815.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id12825.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id12838.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id12883.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id12933.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id13064.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id13107.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+          <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/flux_mp4_compressed/hairweaver_id13122.wipe.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4 has-text-centered">More Visualizations</h2>
+      <div class="is-size-4 publication-authors">
+              <!-- Paper authors -->
+                <span class="author-block">
+                <br>
+                    From left to right: Ref Img, Body Condition, Hair Condition, Generation
+      </div>
+      <div id="results-carousel33" class="carousel results-carousel">
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/000.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/001.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/002.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/003.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/004.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/005.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/006.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/007.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/008.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/009.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/010.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/011.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/012.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/013.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/014.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/015.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/016.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/017.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/018.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/019.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/020.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/021.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/022.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/023.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/024.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/025.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/026.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/027.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/028.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/029.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/030.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/031.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/032.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/033.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/034.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/035.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/036.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/037.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/038.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/039.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/040.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/041.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/042.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/043.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/flux_more_viz_compressed/044.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+bulmaCarousel.attach('#results-carousel11', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true,
+    autoplay: false,
+});
+bulmaCarousel.attach('#results-carousel22', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true,
+    autoplay: false,
+});
+bulmaCarousel.attach('#results-carousel33', {
+    slidesToScroll: 2,
+    slidesToShow: 2,
+    infinite: true,
+    autoplay: false,
+});
+</script>
+
+
+  </body>
+  </html>
